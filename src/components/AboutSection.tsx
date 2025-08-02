@@ -34,36 +34,32 @@ const AboutSection = () => {
           }`}
         >
           <h2 className="text-4xl lg:text-5xl font-bold text-center mb-12 bg-hero-gradient bg-clip-text text-transparent">
-            About Me
+            자기소개
           </h2>
           
           <div className="bg-card rounded-2xl p-8 lg:p-12 shadow-card hover:shadow-card-hover transition-all duration-300">
             <div className="text-lg leading-relaxed text-muted-foreground space-y-6">
               <p>
-                Welcome to my portfolio! I'm a passionate junior front-end developer 
-                with a strong foundation in modern web technologies and a keen eye for 
-                user experience design.
+                제 포트폴리오에 오신 것을 환영합니다! 저는 현대적인 웹 기술에 대한 
+                탄탄한 기초와 사용자 경험 디자인에 대한 예리한 안목을 가진 열정적인 
+                주니어 프론트엔드 개발자입니다.
               </p>
               
               <p>
-                My journey in web development began during my university studies, where 
-                I discovered my love for creating interactive and visually appealing 
-                digital experiences. I enjoy the challenge of turning complex problems 
-                into simple, beautiful, and intuitive solutions.
+                웹 개발에 대한 제 여정은 대학 재학 중에 시작되었으며, 상호작용적이고 
+                시각적으로 매력적인 디지털 경험을 만드는 것에 대한 사랑을 발견했습니다. 
+                복잡한 문제를 간단하고 아름다우며 직관적인 솔루션으로 바꾸는 도전을 즐깁니다.
               </p>
               
               <p>
-                When I'm not coding, you can find me exploring new design trends, 
-                contributing to open-source projects, or working on personal projects 
-                that push the boundaries of what's possible on the web. I believe in 
-                continuous learning and staying up-to-date with the latest industry 
-                best practices.
+                코딩을 하지 않을 때는 새로운 디자인 트렌드를 탐색하거나, 오픈소스 
+                프로젝트에 기여하거나, 웹에서 가능한 것의 경계를 넓히는 개인 프로젝트를 
+                작업하고 있습니다. 지속적인 학습과 최신 업계 모범 사례를 따라가는 것을 믿습니다.
               </p>
               
               <p>
-                I'm currently seeking opportunities to work with a dynamic team where 
-                I can contribute my skills while continuing to grow as a developer. 
-                Let's build something amazing together!
+                현재 제 기술을 기여하면서 개발자로서 계속 성장할 수 있는 역동적인 팀과 
+                함께 일할 기회를 찾고 있습니다. 함께 멋진 것을 만들어 봅시다!
               </p>
             </div>
           </div>

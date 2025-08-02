@@ -31,7 +31,7 @@ const Navigation = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           <div className="text-2xl font-bold bg-hero-gradient bg-clip-text text-transparent">
-            Portfolio
+            포트폴리오
           </div>
           
           <div className="hidden md:flex space-x-1">
@@ -40,14 +40,14 @@ const Navigation = () => {
               onClick={() => scrollToSection("about")}
               className="hover:bg-primary/10 hover:text-primary transition-colors"
             >
-              About Me
+              자기소개
             </Button>
             <Button
               variant="ghost"
               onClick={() => scrollToSection("portfolio")}
               className="hover:bg-primary/10 hover:text-primary transition-colors"
             >
-              Portfolio
+              포트폴리오
             </Button>
             <Button
               variant="ghost"
@@ -65,7 +65,7 @@ const Navigation = () => {
             className="md:hidden"
             onClick={() => scrollToSection("about")}
           >
-            Menu
+            메뉴
           </Button>
         </div>
       </div>

@@ -5,7 +5,7 @@ import developerPortrait from "@/assets/developer-portrait.jpg";
 const HeroSection = () => {
   const contactLinks = [
     {
-      label: "Email",
+      label: "이메일",
       icon: Mail,
       href: "mailto:developer@example.com",
       variant: "default" as const,
@@ -17,13 +17,13 @@ const HeroSection = () => {
       variant: "outline" as const,
     },
     {
-      label: "Blog",
+      label: "블로그",
       icon: ExternalLink,
       href: "https://blog.example.com",
       variant: "outline" as const,
     },
     {
-      label: "Resume",
+      label: "이력서",
       icon: FileText,
       href: "/resume.pdf",
       variant: "secondary" as const,
@@ -52,15 +52,16 @@ const HeroSection = () => {
           {/* Content */}
           <div className="flex-1 text-center lg:text-left animate-slide-in-right">
             <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6">
-              Hi, I'm{" "}
+              안녕하세요, 저는{" "}
               <span className="bg-gradient-to-r from-white to-primary-glow bg-clip-text text-transparent">
-                Alex Johnson
+                김민준
               </span>
+              입니다
             </h1>
             
             <p className="text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed">
-              Junior Front-End Developer passionate about creating beautiful,
-              responsive web experiences with modern technologies.
+              현대적인 기술로 아름답고 반응형 웹 경험을 만드는 것에 열정을 가진
+              주니어 프론트엔드 개발자입니다.
             </p>
 
             {/* Contact Links */}

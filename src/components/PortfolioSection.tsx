@@ -10,41 +10,41 @@ const PortfolioSection = () => {
   const projects = [
     {
       id: 1,
-      title: "Netflix Clone",
-      description: "A fully responsive Netflix clone with user authentication, movie browsing, and video streaming capabilities.",
+      title: "넷플릭스 클론",
+      description: "사용자 인증, 영화 탐색, 비디오 스트리밍 기능을 갖춘 완전 반응형 넷플릭스 클론입니다.",
       technologies: ["React", "TypeScript", "Firebase", "CSS3"],
-      duration: "3 months",
-      teamSize: "Personal Project",
-      status: "Completed",
+      duration: "3개월",
+      teamSize: "개인 프로젝트",
+      status: "완료",
       link: "https://github.com/example/netflix-clone"
     },
     {
       id: 2,
-      title: "Book Management System",
-      description: "Collaborative book management application with CRUD operations, search functionality, and user reviews.",
+      title: "도서 관리 시스템",
+      description: "CRUD 기능, 검색 기능, 사용자 리뷰를 포함한 협업 도서 관리 애플리케이션입니다.",
       technologies: ["React", "Node.js", "MongoDB", "Express"],
-      duration: "2 months",
-      teamSize: "4 developers",
-      status: "Completed",
+      duration: "2개월",
+      teamSize: "4명의 개발자",
+      status: "완료",
       link: "https://github.com/example/book-management"
     },
     {
       id: 3,
-      title: "E-Commerce Platform",
-      description: "Modern e-commerce solution with shopping cart, payment integration, and admin dashboard (Coming Soon).",
+      title: "전자상거래 플랫폼",
+      description: "장바구니, 결제 연동, 관리자 대시보드를 갖춘 현대적인 전자상거래 솔루션입니다 (곧 출시).",
       technologies: ["Next.js", "TypeScript", "Stripe", "Prisma"],
-      duration: "1 month",
-      teamSize: "Personal Project",
-      status: "In Progress",
+      duration: "1개월",
+      teamSize: "개인 프로젝트",
+      status: "진행중",
       link: "#"
     }
   ];
 
   const activities = [
     {
-      title: "UX/UI Design Team Projects",
-      description: "Collaborated with design teams during university studies to create user-centered design solutions for various client projects.",
-      achievements: ["Conducted user research and testing", "Created wireframes and prototypes", "Designed responsive interfaces"]
+      title: "UX/UI 디자인 팀 프로젝트",
+      description: "대학 재학 중 디자인 팀과 협업하여 다양한 클라이언트 프로젝트를 위한 사용자 중심 디자인 솔루션을 제작했습니다.",
+      achievements: ["사용자 리서치 및 테스트 수행", "와이어프레임 및 프로토타입 제작", "반응형 인터페이스 디자인"]
     }
   ];
 
@@ -67,9 +67,9 @@ const PortfolioSection = () => {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case "Completed":
+      case "완료":
         return "bg-green-100 text-green-800 border-green-200";
-      case "In Progress":
+      case "진행중":
         return "bg-yellow-100 text-yellow-800 border-yellow-200";
       default:
         return "bg-muted text-muted-foreground border-border";
@@ -89,7 +89,7 @@ const PortfolioSection = () => {
           }`}
         >
           <h2 className="text-4xl lg:text-5xl font-bold text-center mb-12 bg-hero-gradient bg-clip-text text-transparent">
-            Portfolio & Projects
+            포트폴리오 & 프로젝트
           </h2>
 
           {/* Portfolio PDF Download */}
@@ -100,7 +100,7 @@ const PortfolioSection = () => {
               className="hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105"
             >
               <Download className="mr-2 h-5 w-5" />
-              Download Portfolio PDF
+              포트폴리오 PDF 다운로드
             </Button>
           </div>
 
@@ -131,11 +131,11 @@ const PortfolioSection = () => {
                 <div className="space-y-3 mb-6">
                   <div className="flex items-center text-sm text-muted-foreground">
                     <Clock className="mr-2 h-4 w-4" />
-                    Duration: {project.duration}
+                    기간: {project.duration}
                   </div>
                   <div className="flex items-center text-sm text-muted-foreground">
                     <Users className="mr-2 h-4 w-4" />
-                    Team: {project.teamSize}
+                    팀: {project.teamSize}
                   </div>
                 </div>
 
@@ -158,7 +158,7 @@ const PortfolioSection = () => {
                   disabled={project.link === "#"}
                 >
                   <ExternalLink className="mr-2 h-4 w-4 group-hover:rotate-12 transition-transform" />
-                  {project.link === "#" ? "Coming Soon" : "View Project"}
+                  {project.link === "#" ? "곧 출시" : "프로젝트 보기"}
                 </Button>
               </div>
             ))}
@@ -167,7 +167,7 @@ const PortfolioSection = () => {
           {/* Activities Section */}
           <div className="max-w-4xl mx-auto">
             <h3 className="text-3xl font-bold text-center mb-8 text-foreground">
-              Additional Activities
+              추가 활동
             </h3>
             
             {activities.map((activity, index) => (

@@ -9,12 +9,12 @@ const Footer = () => {
       href: "https://github.com",
     },
     {
-      label: "Email",
+      label: "이메일",
       icon: Mail,
       href: "mailto:developer@example.com",
     },
     {
-      label: "Blog",
+      label: "블로그",
       icon: ExternalLink,
       href: "https://blog.example.com",
     },
@@ -33,9 +33,9 @@ const Footer = () => {
             variant="outline"
             onClick={scrollToTop}
             className="hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105"
-          >
-            Back to Top
-          </Button>
+            >
+              맨 위로
+            </Button>
 
           {/* Social Links */}
           <div className="flex space-x-4">
@@ -56,10 +56,10 @@ const Footer = () => {
           {/* Copyright */}
           <div className="text-center text-muted-foreground">
             <p className="flex items-center justify-center">
-              Made with <Heart className="h-4 w-4 mx-1 text-red-500" /> by Alex Johnson
+              <Heart className="h-4 w-4 mx-1 text-red-500" />와 함께 김민준이 제작
             </p>
             <p className="text-sm mt-2">
-              © {new Date().getFullYear()} All rights reserved.
+              © {new Date().getFullYear()} 모든 권리 보유.
             </p>
           </div>
         </div>

@@ -6,13 +6,13 @@ const SkillsSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
 
   const skills = [
-    { name: "HTML", category: "Frontend", level: "Advanced" },
-    { name: "CSS", category: "Frontend", level: "Advanced" },
-    { name: "JavaScript", category: "Frontend", level: "Intermediate" },
-    { name: "TypeScript", category: "Frontend", level: "Intermediate" },
-    { name: "React", category: "Framework", level: "Intermediate" },
-    { name: "Next.js", category: "Framework", level: "Beginner" },
-    { name: "Figma", category: "Design", level: "Intermediate" },
+    { name: "HTML", category: "프론트엔드", level: "고급" },
+    { name: "CSS", category: "프론트엔드", level: "고급" },
+    { name: "JavaScript", category: "프론트엔드", level: "중급" },
+    { name: "TypeScript", category: "프론트엔드", level: "중급" },
+    { name: "React", category: "프레임워크", level: "중급" },
+    { name: "Next.js", category: "프레임워크", level: "초급" },
+    { name: "Figma", category: "디자인", level: "중급" },
   ];
 
   useEffect(() => {
@@ -34,11 +34,11 @@ const SkillsSection = () => {
 
   const getCategoryColor = (category: string) => {
     switch (category) {
-      case "Frontend":
+      case "프론트엔드":
         return "bg-primary/10 text-primary border-primary/20";
-      case "Framework":
+      case "프레임워크":
         return "bg-accent/10 text-accent border-accent/20";
-      case "Design":
+      case "디자인":
         return "bg-secondary text-secondary-foreground border-border";
       default:
         return "bg-muted text-muted-foreground border-border";
@@ -58,12 +58,12 @@ const SkillsSection = () => {
           }`}
         >
           <h2 className="text-4xl lg:text-5xl font-bold text-center mb-12 bg-hero-gradient bg-clip-text text-transparent">
-            Skills & Technologies
+            기술 스택
           </h2>
 
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {["Frontend", "Framework", "Design"].map((category) => (
+              {["프론트엔드", "프레임워크", "디자인"].map((category) => (
                 <div
                   key={category}
                   className="bg-card rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300"
@@ -95,9 +95,9 @@ const SkillsSection = () => {
                           <div className="w-full bg-muted rounded-full h-2">
                             <div
                               className={`h-2 rounded-full transition-all duration-1000 delay-${index * 150} ${
-                                skill.level === "Advanced"
+                                skill.level === "고급"
                                   ? "w-5/6 bg-primary"
-                                  : skill.level === "Intermediate"
+                                  : skill.level === "중급"
                                   ? "w-2/3 bg-accent"
                                   : "w-1/2 bg-secondary"
                               } ${isVisible ? "scale-x-100" : "scale-x-0"}`}
