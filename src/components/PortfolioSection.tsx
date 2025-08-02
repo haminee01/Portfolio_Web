@@ -51,11 +51,13 @@ const PortfolioSection = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        // 스크롤 위치에 따라 실시간으로 상태 변경
+        setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.2 }
+      { 
+        threshold: 0.2,
+        rootMargin: '-50px 0px -50px 0px'
+      }
     );
 
     if (sectionRef.current) {
@@ -84,8 +86,10 @@ const PortfolioSection = () => {
     >
       <div className="container mx-auto px-6">
         <div
-          className={`transition-all duration-1000 ${
-            isVisible ? "animate-fade-in" : "opacity-0 translate-y-10"
+          className={`transition-all duration-700 transform ${
+            isVisible 
+              ? "animate-fade-in opacity-100 translate-y-0" 
+              : "opacity-0 translate-y-10"
           }`}
         >
           <h2 className="text-4xl lg:text-5xl font-bold text-center mb-12 bg-hero-gradient bg-clip-text text-transparent">
@@ -109,10 +113,12 @@ const PortfolioSection = () => {
             {projects.map((project, index) => (
               <div
                 key={project.id}
-                className={`bg-card rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 hover:scale-105 transform ${
-                  isVisible ? "animate-slide-in-left" : "opacity-0 translate-x-[-20px]"
+                className={`bg-card rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all duration-500 hover:scale-105 transform ${
+                  isVisible 
+                    ? "opacity-100 translate-x-0" 
+                    : "opacity-0 translate-x-[-20px]"
                 }`}
-                style={{ animationDelay: `${index * 200}ms` }}
+                style={{ transitionDelay: isVisible ? `${index * 200}ms` : '0ms' }}
               >
                 <div className="flex items-start justify-between mb-4">
                   <h3 className="text-xl font-semibold">{project.title}</h3>
@@ -173,10 +179,12 @@ const PortfolioSection = () => {
             {activities.map((activity, index) => (
               <div
                 key={index}
-                className={`bg-card rounded-2xl p-8 shadow-card hover:shadow-card-hover transition-all duration-300 ${
-                  isVisible ? "animate-fade-in" : "opacity-0"
+                className={`bg-card rounded-2xl p-8 shadow-card hover:shadow-card-hover transition-all duration-500 transform ${
+                  isVisible 
+                    ? "opacity-100 translate-y-0" 
+                    : "opacity-0 translate-y-10"
                 }`}
-                style={{ animationDelay: `${600 + index * 200}ms` }}
+                style={{ transitionDelay: isVisible ? `${600 + index * 200}ms` : '0ms' }}
               >
                 <h4 className="text-xl font-semibold mb-4">{activity.title}</h4>
                 <p className="text-muted-foreground mb-4">{activity.description}</p>

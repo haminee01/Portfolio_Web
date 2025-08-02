@@ -18,11 +18,13 @@ const SkillsSection = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        // 스크롤 위치에 따라 실시간으로 상태 변경
+        setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.3 }
+      { 
+        threshold: 0.3,
+        rootMargin: '-50px 0px -50px 0px'
+      }
     );
 
     if (sectionRef.current) {
@@ -53,8 +55,10 @@ const SkillsSection = () => {
     >
       <div className="container mx-auto px-6">
         <div
-          className={`transition-all duration-1000 ${
-            isVisible ? "animate-fade-in" : "opacity-0 translate-y-10"
+          className={`transition-all duration-700 transform ${
+            isVisible 
+              ? "animate-fade-in opacity-100 translate-y-0" 
+              : "opacity-0 translate-y-10"
           }`}
         >
           <h2 className="text-4xl lg:text-5xl font-bold text-center mb-12 bg-hero-gradient bg-clip-text text-transparent">
@@ -78,9 +82,12 @@ const SkillsSection = () => {
                       .map((skill, index) => (
                         <div
                           key={skill.name}
-                          className={`transform transition-all duration-300 delay-${index * 100} ${
-                            isVisible ? "animate-slide-in-left" : "opacity-0 translate-x-[-20px]"
+                          className={`transform transition-all duration-500 ${
+                            isVisible 
+                              ? "opacity-100 translate-x-0" 
+                              : "opacity-0 translate-x-[-20px]"
                           }`}
+                          style={{ transitionDelay: isVisible ? `${index * 100}ms` : '0ms' }}
                         >
                           <div className="flex items-center justify-between mb-2">
                             <span className="font-medium">{skill.name}</span>
@@ -101,7 +108,10 @@ const SkillsSection = () => {
                                   ? "w-2/3 bg-accent"
                                   : "w-1/2 bg-secondary"
                               } ${isVisible ? "scale-x-100" : "scale-x-0"}`}
-                              style={{ transformOrigin: "left" }}
+                              style={{ 
+                                transformOrigin: "left",
+                                transitionDelay: isVisible ? `${index * 150}ms` : '0ms'
+                              }}
                             />
                           </div>
                         </div>

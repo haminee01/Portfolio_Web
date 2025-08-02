@@ -7,11 +7,13 @@ const AboutSection = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        // 스크롤 위치에 따라 실시간으로 상태 변경
+        setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.3 }
+      { 
+        threshold: 0.3,
+        rootMargin: '-50px 0px -50px 0px' // 약간의 여백을 두어 더 자연스럽게
+      }
     );
 
     if (sectionRef.current) {
@@ -29,8 +31,10 @@ const AboutSection = () => {
     >
       <div className="container mx-auto px-6">
         <div
-          className={`max-w-4xl mx-auto transition-all duration-1000 ${
-            isVisible ? "animate-fade-in" : "opacity-0 translate-y-10"
+          className={`max-w-4xl mx-auto transition-all duration-700 transform ${
+            isVisible 
+              ? "animate-fade-in opacity-100 translate-y-0" 
+              : "opacity-0 translate-y-10"
           }`}
         >
           <h2 className="text-4xl lg:text-5xl font-bold text-center mb-12 bg-hero-gradient bg-clip-text text-transparent">
