@@ -1,3 +1,4 @@
+// src/components/SkillsSection.tsx
 import { useEffect, useRef, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 
@@ -5,25 +6,30 @@ const SkillsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
+  const certifications = ["SQLD", "정보처리기사"];
+
   const skills = [
-    { name: "HTML", category: "프론트엔드", level: "고급" },
-    { name: "CSS", category: "프론트엔드", level: "고급" },
-    { name: "JavaScript", category: "프론트엔드", level: "중급" },
-    { name: "TypeScript", category: "프론트엔드", level: "중급" },
-    { name: "React", category: "프레임워크", level: "중급" },
-    { name: "Next.js", category: "프레임워크", level: "초급" },
-    { name: "Figma", category: "디자인", level: "중급" },
+    { name: "HTML5", category: "프론트엔드" },
+    { name: "CSS3", category: "프론트엔드" },
+    { name: "JavaScript", category: "프론트엔드" },
+    { name: "TypeScript", category: "프론트엔드" },
+    { name: "React", category: "프레임워크" },
+    { name: "Next.js", category: "프레임워크" },
+    { name: "Tailwind CSS", category: "프레임워크" },
+    { name: "Figma", category: "디자인" },
+    { name: "Node.js", category: "백엔드" },
+    { name: "Prisma", category: "백엔드" },
+    { name: "MySQL", category: "백엔드" },
   ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // 스크롤 위치에 따라 실시간으로 상태 변경
         setIsVisible(entry.isIntersecting);
       },
-      { 
+      {
         threshold: 0.3,
-        rootMargin: '-50px 0px -50px 0px'
+        rootMargin: "-50px 0px -50px 0px",
       }
     );
 
@@ -37,83 +43,86 @@ const SkillsSection = () => {
   const getCategoryColor = (category: string) => {
     switch (category) {
       case "프론트엔드":
-        return "bg-primary/10 text-primary border-primary/20";
+        return "bg-green-100 text-green-800 border-green-200";
       case "프레임워크":
-        return "bg-accent/10 text-accent border-accent/20";
+        return "bg-teal-100 text-teal-800 border-teal-200";
       case "디자인":
-        return "bg-secondary text-secondary-foreground border-border";
+        return "bg-lime-100 text-lime-800 border-lime-200";
+      case "백엔드":
+        return "bg-cyan-100 text-cyan-800 border-cyan-200";
       default:
-        return "bg-muted text-muted-foreground border-border";
+        return "bg-gray-100 text-gray-800 border-gray-200";
     }
   };
 
+  const categories = ["프론트엔드", "백엔드", "프레임워크", "디자인"];
+
   return (
-    <section
-      id="skills"
-      ref={sectionRef}
-      className="py-20 bg-background"
-    >
+    <section id="skills" ref={sectionRef} className="py-20 bg-gray-50">
       <div className="container mx-auto px-6">
         <div
           className={`transition-all duration-700 transform ${
-            isVisible 
-              ? "animate-fade-in opacity-100 translate-y-0" 
+            isVisible
+              ? "animate-fade-in opacity-100 translate-y-0"
               : "opacity-0 translate-y-10"
           }`}
         >
-          <h2 className="text-4xl lg:text-5xl font-bold text-center mb-12 bg-hero-gradient bg-clip-text text-transparent">
+          <div className="max-w-6xl mx-auto mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-center mb-12 text-gray-900">
+              자격증
+            </h2>
+            <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 max-w-lg mx-auto">
+              <div className="flex flex-wrap gap-2 justify-center">
+                {certifications.map((cert) => (
+                  <Badge
+                    key={cert}
+                    variant="outline"
+                    className="bg-gray-100 text-gray-800 border-gray-200"
+                  >
+                    {cert}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <h2 className="text-4xl lg:text-5xl font-bold text-center mb-12 text-gray-900">
             기술 스택
           </h2>
-
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {["프론트엔드", "프레임워크", "디자인"].map((category) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {categories.map((category) => (
                 <div
                   key={category}
-                  className="bg-card rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300"
+                  className="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200"
                 >
-                  <h3 className="text-xl font-semibold mb-6 text-center">
+                  <h3 className="text-xl font-semibold mb-6 text-center text-gray-800">
                     {category}
                   </h3>
-                  
-                  <div className="space-y-3">
+
+                  <div className="flex flex-wrap gap-2">
                     {skills
                       .filter((skill) => skill.category === category)
                       .map((skill, index) => (
                         <div
                           key={skill.name}
                           className={`transform transition-all duration-500 ${
-                            isVisible 
-                              ? "opacity-100 translate-x-0" 
+                            isVisible
+                              ? "opacity-100 translate-x-0"
                               : "opacity-0 translate-x-[-20px]"
                           }`}
-                          style={{ transitionDelay: isVisible ? `${index * 100}ms` : '0ms' }}
+                          style={{
+                            transitionDelay: isVisible
+                              ? `${index * 100}ms`
+                              : "0ms",
+                          }}
                         >
-                          <div className="flex items-center justify-between mb-2">
-                            <span className="font-medium">{skill.name}</span>
-                            <Badge
-                              variant="outline"
-                              className={getCategoryColor(category)}
-                            >
-                              {skill.level}
-                            </Badge>
-                          </div>
-                          
-                          <div className="w-full bg-muted rounded-full h-2">
-                            <div
-                              className={`h-2 rounded-full transition-all duration-1000 delay-${index * 150} ${
-                                skill.level === "고급"
-                                  ? "w-5/6 bg-primary"
-                                  : skill.level === "중급"
-                                  ? "w-2/3 bg-accent"
-                                  : "w-1/2 bg-secondary"
-                              } ${isVisible ? "scale-x-100" : "scale-x-0"}`}
-                              style={{ 
-                                transformOrigin: "left",
-                                transitionDelay: isVisible ? `${index * 150}ms` : '0ms'
-                              }}
-                            />
-                          </div>
+                          <Badge
+                            variant="outline"
+                            className={getCategoryColor(category)}
+                          >
+                            {skill.name}
+                          </Badge>
                         </div>
                       ))}
                   </div>

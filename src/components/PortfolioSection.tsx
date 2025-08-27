@@ -1,3 +1,4 @@
+// src/components/PortfolioSection.tsx
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -6,57 +7,63 @@ import { Clock, Users, ExternalLink, Download } from "lucide-react";
 const PortfolioSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const [expandedProjectId, setExpandedProjectId] = useState<number | null>(
+    null
+  );
 
   const projects = [
     {
       id: 1,
       title: "넷플릭스 클론",
-      description: "사용자 인증, 영화 탐색, 비디오 스트리밍 기능을 갖춘 완전 반응형 넷플릭스 클론입니다.",
+      description:
+        "사용자 인증, 영화 탐색, 비디오 스트리밍 기능을 갖춘 반응형 웹 애플리케이션입니다.",
       technologies: ["React", "TypeScript", "Firebase", "CSS3"],
       duration: "3개월",
       teamSize: "개인 프로젝트",
       status: "완료",
-      link: "https://github.com/example/netflix-clone"
+      link: "https://github.com/example/netflix-clone",
+      details:
+        "넷플릭스 UI/UX를 모방하여 프론트엔드 기술을 심화 학습했습니다. 상태 관리와 API 연동에 중점을 두었습니다.",
+      image: "/path/to/netflix-clone-image.png",
     },
     {
       id: 2,
       title: "도서 관리 시스템",
-      description: "CRUD 기능, 검색 기능, 사용자 리뷰를 포함한 협업 도서 관리 애플리케이션입니다.",
+      description:
+        "CRUD 기능, 검색, 사용자 리뷰를 포함한 협업 도서 관리 시스템입니다.",
       technologies: ["React", "Node.js", "MongoDB", "Express"],
       duration: "2개월",
       teamSize: "4명의 개발자",
       status: "완료",
-      link: "https://github.com/example/book-management"
+      link: "https://github.com/example/book-management",
+      details:
+        "백엔드 개발자와 협업하여 RESTful API를 설계하고, 사용자들이 도서 정보를 공유할 수 있는 플랫폼을 만들었습니다. 사용자 경험을 개선하기 위한 디자인 시스템을 구축했습니다.",
+      image: "/path/to/book-management-image.png",
     },
     {
       id: 3,
       title: "전자상거래 플랫폼",
-      description: "장바구니, 결제 연동, 관리자 대시보드를 갖춘 현대적인 전자상거래 솔루션입니다 (곧 출시).",
+      description:
+        "장바구니, 결제 연동, 관리자 대시보드를 갖춘 현대적인 솔루션입니다.",
       technologies: ["Next.js", "TypeScript", "Stripe", "Prisma"],
       duration: "1개월",
       teamSize: "개인 프로젝트",
       status: "진행중",
-      link: "#"
-    }
-  ];
-
-  const activities = [
-    {
-      title: "UX/UI 디자인 팀 프로젝트",
-      description: "대학 재학 중 디자인 팀과 협업하여 다양한 클라이언트 프로젝트를 위한 사용자 중심 디자인 솔루션을 제작했습니다.",
-      achievements: ["사용자 리서치 및 테스트 수행", "와이어프레임 및 프로토타입 제작", "반응형 인터페이스 디자인"]
-    }
+      link: "#",
+      details:
+        "Next.js의 서버 컴포넌트와 SSR 기능을 활용하여 SEO 친화적인 플랫폼을 개발 중입니다. 특히 결제 시스템 연동과 보안에 초점을 맞추고 있습니다.",
+      image: "/path/to/e-commerce-image.png",
+    },
   ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // 스크롤 위치에 따라 실시간으로 상태 변경
         setIsVisible(entry.isIntersecting);
       },
-      { 
+      {
         threshold: 0.2,
-        rootMargin: '-50px 0px -50px 0px'
+        rootMargin: "-50px 0px -50px 0px",
       }
     );
 
@@ -74,54 +81,49 @@ const PortfolioSection = () => {
       case "진행중":
         return "bg-yellow-100 text-yellow-800 border-yellow-200";
       default:
-        return "bg-muted text-muted-foreground border-border";
+        return "bg-gray-100 text-gray-800 border-gray-200";
     }
   };
 
   return (
-    <section
-      id="portfolio"
-      ref={sectionRef}
-      className="py-20 bg-section-gradient"
-    >
+    <section id="portfolio" ref={sectionRef} className="py-20 bg-white">
       <div className="container mx-auto px-6">
         <div
           className={`transition-all duration-700 transform ${
-            isVisible 
-              ? "animate-fade-in opacity-100 translate-y-0" 
+            isVisible
+              ? "animate-fade-in opacity-100 translate-y-0"
               : "opacity-0 translate-y-10"
           }`}
         >
-          <h2 className="text-4xl lg:text-5xl font-bold text-center mb-12 bg-hero-gradient bg-clip-text text-transparent">
-            포트폴리오 & 프로젝트
+          <h2 className="text-4xl lg:text-5xl font-bold text-center mb-12 text-gray-900">
+            프로젝트 & 활동
           </h2>
 
-          {/* Portfolio PDF Download */}
-          <div className="text-center mb-12">
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105"
-            >
-              <Download className="mr-2 h-5 w-5" />
-              포트폴리오 PDF 다운로드
-            </Button>
-          </div>
-
-          {/* Projects Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <div
                 key={project.id}
-                className={`bg-card rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all duration-500 hover:scale-105 transform ${
-                  isVisible 
-                    ? "opacity-100 translate-x-0" 
+                className={`bg-gray-50 rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-500 transform border border-gray-200 ${
+                  isVisible
+                    ? "opacity-100 translate-x-0"
                     : "opacity-0 translate-x-[-20px]"
                 }`}
-                style={{ transitionDelay: isVisible ? `${index * 200}ms` : '0ms' }}
+                style={{
+                  transitionDelay: isVisible ? `${index * 200}ms` : "0ms",
+                }}
               >
+                <div className="bg-white rounded-xl overflow-hidden mb-4 shadow-sm">
+                  <img
+                    src={project.image}
+                    alt={`${project.title} 프로젝트 이미지`}
+                    className="w-full h-48 object-cover"
+                  />
+                </div>
+
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-semibold">{project.title}</h3>
+                  <h3 className="text-xl font-semibold text-gray-800">
+                    {project.title}
+                  </h3>
                   <Badge
                     variant="outline"
                     className={getStatusColor(project.status)}
@@ -130,16 +132,16 @@ const PortfolioSection = () => {
                   </Badge>
                 </div>
 
-                <p className="text-muted-foreground mb-4 leading-relaxed">
+                <p className="text-gray-600 mb-4 leading-relaxed">
                   {project.description}
                 </p>
 
                 <div className="space-y-3 mb-6">
-                  <div className="flex items-center text-sm text-muted-foreground">
+                  <div className="flex items-center text-sm text-gray-500">
                     <Clock className="mr-2 h-4 w-4" />
                     기간: {project.duration}
                   </div>
-                  <div className="flex items-center text-sm text-muted-foreground">
+                  <div className="flex items-center text-sm text-gray-500">
                     <Users className="mr-2 h-4 w-4" />
                     팀: {project.teamSize}
                   </div>
@@ -150,7 +152,7 @@ const PortfolioSection = () => {
                     <Badge
                       key={tech}
                       variant="secondary"
-                      className="bg-primary/10 text-primary border-primary/20"
+                      className="bg-green-100 text-green-700 border-green-200"
                     >
                       {tech}
                     </Badge>
@@ -159,47 +161,13 @@ const PortfolioSection = () => {
 
                 <Button
                   variant="outline"
-                  className="w-full group hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                  className="w-full group rounded-full hover:bg-green-500 hover:text-white transition-all duration-300"
                   onClick={() => window.open(project.link, "_blank")}
                   disabled={project.link === "#"}
                 >
-                  <ExternalLink className="mr-2 h-4 w-4 group-hover:rotate-12 transition-transform" />
+                  <ExternalLink className="mr-2 h-4 w-4" />
                   {project.link === "#" ? "곧 출시" : "프로젝트 보기"}
                 </Button>
-              </div>
-            ))}
-          </div>
-
-          {/* Activities Section */}
-          <div className="max-w-4xl mx-auto">
-            <h3 className="text-3xl font-bold text-center mb-8 text-foreground">
-              추가 활동
-            </h3>
-            
-            {activities.map((activity, index) => (
-              <div
-                key={index}
-                className={`bg-card rounded-2xl p-8 shadow-card hover:shadow-card-hover transition-all duration-500 transform ${
-                  isVisible 
-                    ? "opacity-100 translate-y-0" 
-                    : "opacity-0 translate-y-10"
-                }`}
-                style={{ transitionDelay: isVisible ? `${600 + index * 200}ms` : '0ms' }}
-              >
-                <h4 className="text-xl font-semibold mb-4">{activity.title}</h4>
-                <p className="text-muted-foreground mb-4">{activity.description}</p>
-                
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {activity.achievements.map((achievement, achievementIndex) => (
-                    <div
-                      key={achievementIndex}
-                      className="flex items-center p-3 bg-muted/50 rounded-lg"
-                    >
-                      <div className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0" />
-                      <span className="text-sm">{achievement}</span>
-                    </div>
-                  ))}
-                </div>
               </div>
             ))}
           </div>
