@@ -1,4 +1,3 @@
-// src/components/HeroSection.tsx
 import { Button } from "@/components/ui/button";
 import { Mail, Github, FileText, ExternalLink } from "lucide-react";
 
@@ -17,6 +16,12 @@ const HeroSection = () => {
       variant: "outline" as const,
     },
     {
+      label: "블로그",
+      icon: ExternalLink,
+      href: "https://your-blog-url.com",
+      variant: "outline" as const,
+    },
+    {
       label: "이력서",
       icon: FileText,
       href: "/resume.pdf",
@@ -25,8 +30,8 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-white relative overflow-hidden">
-      <div className="container mx-auto px-6 pt-20 pb-12 relative">
+    <section className="flex items-center justify-center bg-white relative overflow-hidden pt-28 pb-8">
+      <div className="container mx-auto px-6 relative">
         <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-20">
           <div className="flex-1 text-center lg:text-left animate-slide-in-left">
             <h1 className="text-5xl lg:text-7xl font-extrabold text-gray-900 mb-4">
@@ -62,10 +67,10 @@ const HeroSection = () => {
           </div>
 
           {/* <div className="relative w-64 h-64 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300 animate-float">
-            <img
-              src="/path/to/your-portrait-image.jpg"
-              alt="김민준 개발자 초상화"
-              className="w-full h-full object-cover"
+            <img 
+                src="/path/to/your-portrait-image.jpg" 
+                alt="김민준 개발자 초상화" 
+                className="w-full h-full object-cover" 
             />
           </div> */}
         </div>

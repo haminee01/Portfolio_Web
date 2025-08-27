@@ -1,4 +1,3 @@
-// src/components/Footer.tsx
 import { Button } from "@/components/ui/button";
 import { Github, Mail, ExternalLink, Heart, ArrowUp } from "lucide-react";
 
@@ -54,7 +53,7 @@ const Footer = () => {
 
           <div className="text-center text-green-700">
             <p className="flex items-center justify-center">
-              <Heart className="h-4 w-4 mx-1 text-red-500" />와 함께 김민준이
+              <Heart className="h-4 w-4 mx-1 text-red-500" />와 함께 이하민이
               제작
             </p>
             <p className="text-sm mt-2">
