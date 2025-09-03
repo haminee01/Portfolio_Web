@@ -6,17 +6,17 @@ const Footer = () => {
     {
       label: "GitHub",
       icon: Github,
-      href: "https://github.com",
+      href: "https://github.com/haminee01",
     },
     {
       label: "이메일",
       icon: Mail,
-      href: "mailto:developer@example.com",
+      href: "mailto:gkmin22@gmail.com",
     },
     {
       label: "블로그",
       icon: ExternalLink,
-      href: "https://blog.example.com",
+      href: "https://blog.naver.com/higkmin",
     },
   ];
 

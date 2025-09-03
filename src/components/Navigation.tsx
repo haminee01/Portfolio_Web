@@ -100,7 +100,9 @@ const Navigation = () => {
                   포트폴리오
                 </DropdownMenuItem>
                 <DropdownMenuItem
-                  onClick={() => window.open("https://github.com", "_blank")}
+                  onClick={() =>
+                    window.open("https://github.com/haminee01", "_blank")
+                  }
                 >
                   GitHub
                 </DropdownMenuItem>

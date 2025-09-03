@@ -6,19 +6,19 @@ const HeroSection = () => {
     {
       label: "이메일",
       icon: Mail,
-      href: "mailto:developer@example.com",
+      href: "mailto:gkmin22@gmail.com",
       variant: "outline" as const,
     },
     {
       label: "GitHub",
       icon: Github,
-      href: "https://github.com",
+      href: "https://github.com/haminee01",
       variant: "outline" as const,
     },
     {
       label: "블로그",
       icon: ExternalLink,
-      href: "https://your-blog-url.com",
+      href: "https://blog.naver.com/higkmin",
       variant: "outline" as const,
     },
     {

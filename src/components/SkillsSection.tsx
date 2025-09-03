@@ -8,14 +8,16 @@ const SkillsSection = () => {
   const certifications = ["SQLD", "정보처리기사"];
 
   const skills = [
-    { name: "HTML5", category: "프론트엔드" },
-    { name: "CSS3", category: "프론트엔드" },
+    { name: "HTML", category: "프론트엔드" },
+    { name: "CSS", category: "프론트엔드" },
     { name: "JavaScript", category: "프론트엔드" },
     { name: "TypeScript", category: "프론트엔드" },
     { name: "React", category: "프레임워크" },
     { name: "Next.js", category: "프레임워크" },
-    { name: "Tailwind CSS", category: "프레임워크" },
+    { name: "Bootstrap", category: "프레임워크" },
     { name: "Figma", category: "디자인" },
+    { name: "XD", category: "디자인" },
+    { name: "Adobe", category: "디자인" },
     { name: "Node.js", category: "백엔드" },
     { name: "Prisma", category: "백엔드" },
     { name: "MySQL", category: "백엔드" },

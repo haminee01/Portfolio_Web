@@ -15,15 +15,16 @@ const PortfolioSection = () => {
       id: 1,
       title: "넷플릭스 클론",
       description:
-        "사용자 인증, 영화 탐색, 비디오 스트리밍 기능을 갖춘 반응형 웹 애플리케이션입니다.",
-      technologies: ["React", "TypeScript", "Firebase", "CSS3"],
+        "영화 탐색, 비디오 스트리밍 기능을 갖춘 반응형 웹 애플리케이션입니다.",
+      technologies: ["React", "TypeScript", "Bootstrap", "CSS"],
       duration: "3개월",
       teamSize: "개인 프로젝트",
       status: "완료",
-      link: "https://github.com/example/netflix-clone",
+      link: "https://github.com/haminee01/Project_NetflixClone.git",
+      portfolioLink: "/portfolios/netflix-clone.pdf",
       details:
         "넷플릭스 UI/UX를 모방하여 프론트엔드 기술을 심화 학습했습니다. 상태 관리와 API 연동에 중점을 두었습니다.",
-      image: "/path/to/netflix-clone-image.png",
+      image: "/images/NetflixClone.png",
     },
     {
       id: 2,
@@ -31,10 +32,11 @@ const PortfolioSection = () => {
       description:
         "CRUD 기능, 검색, 사용자 리뷰를 포함한 협업 도서 관리 시스템입니다.",
       technologies: ["React", "Node.js", "MongoDB", "Express"],
-      duration: "2개월",
+      duration: "1개월",
       teamSize: "4명의 개발자",
       status: "완료",
       link: "https://github.com/example/book-management",
+      portfolioLink: "/portfolios/book-management.pdf",
       details:
         "백엔드 개발자와 협업하여 RESTful API를 설계하고, 사용자들이 도서 정보를 공유할 수 있는 플랫폼을 만들었습니다. 사용자 경험을 개선하기 위한 디자인 시스템을 구축했습니다.",
       image: "/path/to/book-management-image.png",
@@ -46,9 +48,10 @@ const PortfolioSection = () => {
         "장바구니, 결제 연동, 관리자 대시보드를 갖춘 현대적인 솔루션입니다.",
       technologies: ["Next.js", "TypeScript", "Stripe", "Prisma"],
       duration: "1개월",
-      teamSize: "개인 프로젝트",
-      status: "진행중",
+      teamSize: "4명의 개발자",
+      status: "완료",
       link: "#",
+      portfolioLink: "/portfolios/e-commerce.pdf",
       details:
         "Next.js의 서버 컴포넌트와 SSR 기능을 활용하여 SEO 친화적인 플랫폼을 개발 중입니다. 특히 결제 시스템 연동과 보안에 초점을 맞추고 있습니다.",
       image: "/path/to/e-commerce-image.png",
@@ -167,6 +170,17 @@ const PortfolioSection = () => {
                   <ExternalLink className="mr-2 h-4 w-4" />
                   {project.link === "#" ? "곧 출시" : "프로젝트 보기"}
                 </Button>
+
+                {project.portfolioLink && (
+                  <Button
+                    variant="outline"
+                    className="w-full group rounded-full hover:bg-green-500 hover:text-white transition-all duration-300 mt-2"
+                    onClick={() => window.open(project.portfolioLink, "_blank")}
+                  >
+                    <Download className="mr-2 h-4 w-4" />
+                    포트폴리오 다운로드
+                  </Button>
+                )}
               </div>
             ))}
           </div>
