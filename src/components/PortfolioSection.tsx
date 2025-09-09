@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Clock, Users, ExternalLink, Download } from "lucide-react";
+import { Clock, Users, ExternalLink, Download, Github } from "lucide-react";
 
 const PortfolioSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -15,12 +15,13 @@ const PortfolioSection = () => {
       id: 1,
       title: "넷플릭스 클론",
       description:
-        "영화 탐색, 비디오 스트리밍 기능을 갖춘 반응형 웹 애플리케이션입니다.",
+        "영화 데이터를 검색하고, 탐색하며, 상세 정보를 확인할 수 있는 넷플릭스 클론 웹 애플리케이션",
       technologies: ["React", "TypeScript", "Bootstrap", "CSS"],
       duration: "3개월",
       teamSize: "개인 프로젝트",
       status: "완료",
       link: "https://github.com/haminee01/Project_NetflixClone.git",
+      deployLink: "https://project-netf-clone.netlify.app/",
       portfolioLink: "/portfolios/netflix-clone.pdf",
       details:
         "넷플릭스 UI/UX를 모방하여 프론트엔드 기술을 심화 학습했습니다. 상태 관리와 API 연동에 중점을 두었습니다.",
@@ -36,6 +37,7 @@ const PortfolioSection = () => {
       teamSize: "4명의 개발자",
       status: "완료",
       link: "https://github.com/example/book-management",
+      deployLink: "https://your-ecommerce-site.com",
       portfolioLink: "/portfolios/book-management.pdf",
       details:
         "백엔드 개발자와 협업하여 RESTful API를 설계하고, 사용자들이 도서 정보를 공유할 수 있는 플랫폼을 만들었습니다. 사용자 경험을 개선하기 위한 디자인 시스템을 구축했습니다.",
@@ -51,6 +53,7 @@ const PortfolioSection = () => {
       teamSize: "4명의 개발자",
       status: "완료",
       link: "#",
+      deployLink: "https://your-ecommerce-site.com",
       portfolioLink: "/portfolios/e-commerce.pdf",
       details:
         "Next.js의 서버 컴포넌트와 SSR 기능을 활용하여 SEO 친화적인 플랫폼을 개발 중입니다. 특히 결제 시스템 연동과 보안에 초점을 맞추고 있습니다.",
@@ -105,7 +108,7 @@ const PortfolioSection = () => {
             {projects.map((project, index) => (
               <div
                 key={project.id}
-                className={`bg-gray-50 rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-500 transform border border-gray-200 ${
+                className={`group bg-gray-50 rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-500 transform border border-gray-200 hover:scale-105 ${
                   isVisible
                     ? "opacity-100 translate-x-0"
                     : "opacity-0 translate-x-[-20px]"
@@ -161,15 +164,30 @@ const PortfolioSection = () => {
                   ))}
                 </div>
 
-                <Button
-                  variant="outline"
-                  className="w-full group rounded-full hover:bg-green-500 hover:text-white transition-all duration-300"
-                  onClick={() => window.open(project.link, "_blank")}
-                  disabled={project.link === "#"}
-                >
-                  <ExternalLink className="mr-2 h-4 w-4" />
-                  {project.link === "#" ? "곧 출시" : "프로젝트 보기"}
-                </Button>
+                {project.link && (
+                  <Button
+                    variant="outline"
+                    className="w-full group rounded-full hover:bg-green-500 hover:text-white transition-all duration-300"
+                    onClick={() => window.open(project.link, "_blank")}
+                    disabled={project.link === "#"}
+                  >
+                    <Github className="mr-2 h-4 w-4" />
+                    {project.link === "#"
+                      ? "곧 출시"
+                      : "GitHub 리포지토리 보기"}
+                  </Button>
+                )}
+
+                {project.deployLink && (
+                  <Button
+                    variant="outline"
+                    className="w-full group rounded-full hover:bg-green-500 hover:text-white transition-all duration-300 mt-2"
+                    onClick={() => window.open(project.deployLink, "_blank")}
+                  >
+                    <ExternalLink className="mr-2 h-4 w-4" />
+                    배포 사이트 보기
+                  </Button>
+                )}
 
                 {project.portfolioLink && (
                   <Button
@@ -178,7 +196,7 @@ const PortfolioSection = () => {
                     onClick={() => window.open(project.portfolioLink, "_blank")}
                   >
                     <Download className="mr-2 h-4 w-4" />
-                    포트폴리오 다운로드
+                    포트폴리오 보기
                   </Button>
                 )}
               </div>
