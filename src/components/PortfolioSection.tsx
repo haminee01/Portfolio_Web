@@ -7,7 +7,7 @@ const PortfolioSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const [expandedProjectId, setExpandedProjectId] = useState<number | null>(
-    null
+    null,
   );
 
   const projects = [
@@ -24,12 +24,12 @@ const PortfolioSection = () => {
       deployLink: "https://project-netf-clone.netlify.app/",
       portfolioLink: "/portfolios/netflix-clone.pdf",
       details:
-        "넷플릭스 UI/UX를 모방하여 프론트엔드 기술을 심화 학습했습니다. 상태 관리와 API 연동에 중점을 두었습니다.",
+        "넷플릭스 UI/UX를 모방하여 프론트엔드 기술을 심화 학습했다. 상태 관리와 API 연동에 중점을 두었다.",
       image: "/images/NetflixClone.png",
     },
     {
       id: 2,
-      title: "도서 관리 시스템",
+      title: "BookDam",
       description:
         "CRUD 기능, 검색, 사용자 리뷰를 포함한 협업 도서 관리 시스템입니다.",
       technologies: ["React", "Node.js", "MongoDB", "Express"],
@@ -45,19 +45,19 @@ const PortfolioSection = () => {
     },
     {
       id: 3,
-      title: "전자상거래 플랫폼",
+      title: "CafeOn",
       description:
-        "장바구니, 결제 연동, 관리자 대시보드를 갖춘 현대적인 솔루션입니다.",
-      technologies: ["Next.js", "TypeScript", "Stripe", "Prisma"],
-      duration: "1개월",
+        "상황과 분위기에 맞는 최적의 카페를 추천하고, AI 기반 정보 요약과 실시간 커뮤니티 기능으로 사용자의 탐색 비용을 제로에 가깝게 만들고자하는 지능형 카페 큐레이션 플랫폼",
+      technologies: ["Next.js", "TypeScript", "STOMP", "Tailwind CSS", "Axios"],
+      duration: "1개월 2주",
       teamSize: "4명의 개발자",
       status: "완료",
-      link: "#",
-      deployLink: "https://your-ecommerce-site.com",
-      portfolioLink: "/portfolios/e-commerce.pdf",
+      link: "https://github.com/haminee01/Project_CafeOn.git",
+      deployLink: "",
+      portfolioLink: "/portfolios/cafeon_pf.pdf",
       details:
-        "Next.js의 서버 컴포넌트와 SSR 기능을 활용하여 SEO 친화적인 플랫폼을 개발 중입니다. 특히 결제 시스템 연동과 보안에 초점을 맞추고 있습니다.",
-      image: "/path/to/e-commerce-image.png",
+        "Zustand와 STOMP.js를 활용한 실시간 통신 환경에서, Fail-Fast 원칙의 에러 핸들링과 정교한 상태 동기화 로직으로 데이터 정합성을 확보한 견고한 프론트엔드 시스템 구축",
+      image: "/images/cafeon_cafe.png",
     },
   ];
 
@@ -69,7 +69,7 @@ const PortfolioSection = () => {
       {
         threshold: 0.2,
         rootMargin: "-50px 0px -50px 0px",
-      }
+      },
     );
 
     if (sectionRef.current) {
