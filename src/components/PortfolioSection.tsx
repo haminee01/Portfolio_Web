@@ -16,10 +16,10 @@ const PortfolioSection = () => {
       title: "넷플릭스 클론",
       description:
         "영화 데이터를 검색하고, 탐색하며, 상세 정보를 확인할 수 있는 넷플릭스 클론 웹 애플리케이션",
-      technologies: ["React", "TypeScript", "Bootstrap", "CSS"],
+      technologies: ["React", "JavaScript", "TypeScript", "Bootstrap", "CSS"],
       duration: "3개월",
       teamSize: "개인 프로젝트",
-      status: "완료",
+      status: "프론트엔드",
       link: "https://github.com/haminee01/Project_NetflixClone.git",
       deployLink: "https://project-netf-clone.netlify.app/",
       portfolioLink: "/portfolios/netflix-clone.pdf",
@@ -33,11 +33,11 @@ const PortfolioSection = () => {
       description:
         "CRUD 기능, 검색, 사용자 리뷰를 포함한 협업 도서 관리 시스템입니다.",
       technologies: ["React", "Node.js", "MongoDB", "Express"],
-      duration: "1개월",
+      duration: "3주",
       teamSize: "4명의 개발자",
-      status: "완료",
+      status: "백엔드",
       link: "https://github.com/example/book-management",
-      deployLink: "https://your-ecommerce-site.com",
+      deployLink: "",
       portfolioLink: "/portfolios/book-management.pdf",
       details:
         "백엔드 개발자와 협업하여 RESTful API를 설계하고, 사용자들이 도서 정보를 공유할 수 있는 플랫폼을 만들었습니다. 사용자 경험을 개선하기 위한 디자인 시스템을 구축했습니다.",
@@ -51,7 +51,7 @@ const PortfolioSection = () => {
       technologies: ["Next.js", "TypeScript", "STOMP", "Tailwind CSS", "Axios"],
       duration: "1개월 2주",
       teamSize: "4명의 개발자",
-      status: "완료",
+      status: "프론트엔드",
       link: "https://github.com/haminee01/Project_CafeOn.git",
       deployLink: "",
       portfolioLink: "/portfolios/cafeon_pf.pdf",
@@ -81,10 +81,10 @@ const PortfolioSection = () => {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case "완료":
+      case "프론트엔드":
         return "bg-green-100 text-green-800 border-green-200";
-      case "진행중":
-        return "bg-yellow-100 text-yellow-800 border-yellow-200";
+      case "백엔드":
+        return "bg-blue-100 text-blue-800 border-blue-200";
       default:
         return "bg-gray-100 text-gray-800 border-gray-200";
     }
@@ -157,7 +157,11 @@ const PortfolioSection = () => {
                     <Badge
                       key={tech}
                       variant="secondary"
-                      className="bg-green-100 text-green-700 border-green-200"
+                      className={
+                        project.status === "백엔드"
+                          ? "bg-blue-100 text-blue-800 border-blue-200"
+                          : "bg-green-100 text-green-700 border-green-200"
+                      }
                     >
                       {tech}
                     </Badge>
@@ -167,7 +171,11 @@ const PortfolioSection = () => {
                 {project.link && (
                   <Button
                     variant="outline"
-                    className="w-full group rounded-full hover:bg-green-500 hover:text-white transition-all duration-300"
+                    className={
+                      project.status === "백엔드"
+                        ? "w-full group rounded-full hover:bg-blue-500 hover:text-white transition-all duration-300"
+                        : "w-full group rounded-full hover:bg-green-500 hover:text-white transition-all duration-300"
+                    }
                     onClick={() => window.open(project.link, "_blank")}
                     disabled={project.link === "#"}
                   >
@@ -181,7 +189,11 @@ const PortfolioSection = () => {
                 {project.deployLink && (
                   <Button
                     variant="outline"
-                    className="w-full group rounded-full hover:bg-green-500 hover:text-white transition-all duration-300 mt-2"
+                    className={
+                      project.status === "백엔드"
+                        ? "w-full group rounded-full hover:bg-blue-500 hover:text-white transition-all duration-300 mt-2"
+                        : "w-full group rounded-full hover:bg-green-500 hover:text-white transition-all duration-300 mt-2"
+                    }
                     onClick={() => window.open(project.deployLink, "_blank")}
                   >
                     <ExternalLink className="mr-2 h-4 w-4" />
@@ -192,7 +204,11 @@ const PortfolioSection = () => {
                 {project.portfolioLink && (
                   <Button
                     variant="outline"
-                    className="w-full group rounded-full hover:bg-green-500 hover:text-white transition-all duration-300 mt-2"
+                    className={
+                      project.status === "백엔드"
+                        ? "w-full group rounded-full hover:bg-blue-500 hover:text-white transition-all duration-300 mt-2"
+                        : "w-full group rounded-full hover:bg-green-500 hover:text-white transition-all duration-300 mt-2"
+                    }
                     onClick={() => window.open(project.portfolioLink, "_blank")}
                   >
                     <Download className="mr-2 h-4 w-4" />
