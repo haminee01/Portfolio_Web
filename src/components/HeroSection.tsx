@@ -31,7 +31,7 @@ const HeroSection = () => {
 
   return (
     <section className="flex items-center justify-center bg-white relative overflow-hidden pt-28 pb-8">
-      <div className="container mx-auto px-24 relative">
+      <div className="container mx-auto px-6 md:px-12 lg:px-24 relative">
           <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-20">
           <div className="flex-1 text-center lg:text-left animate-slide-in-left">
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-4">

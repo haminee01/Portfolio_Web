@@ -32,12 +32,20 @@ const PortfolioSection = () => {
       title: "BookDam",
       description:
         "CRUD 기능, 검색, 사용자 리뷰를 포함한 협업 도서 관리 시스템. 독서 취향을 기반으로, 익명으로 자유롭게 소통하며 깊이 있는 독서 경험을 만들어가는 커뮤니티 플랫폼",
-      technologies: ["TypeScript", "Node.js", "Express", "Prisma", "MySQL", "REST API", "JWT Authentication"],
+      technologies: [
+        "TypeScript",
+        "Node.js",
+        "Express",
+        "Prisma",
+        "MySQL",
+        "REST API",
+        "JWT Authentication",
+      ],
       duration: "3주",
       teamSize: "4명의 개발자",
       status: "백엔드",
       link: "https://github.com/haminee01/Project_BookDam.git",
-      deployLink: "",
+      deployLink: "/video/BookDam_video.mp4",
       portfolioLink: "/portfolios/bookdam_pf.pdf",
       details:
         "Node.js, TypeScript, Express, Prisma를 기반으로 한 Layered Architecture 설계 및 RESTful API 구현.",
@@ -53,7 +61,7 @@ const PortfolioSection = () => {
       teamSize: "4명의 개발자",
       status: "프론트엔드",
       link: "https://github.com/haminee01/Project_CafeOn.git",
-      deployLink: "",
+      deployLink: "/video/CafeOn_video.mp4",
       portfolioLink: "/portfolios/cafeon_pf.pdf",
       details:
         "Zustand와 STOMP.js를 활용한 실시간 통신 환경에서, Fail-Fast 원칙의 에러 핸들링과 정교한 상태 동기화 로직으로 데이터 정합성을 확보한 견고한 프론트엔드 시스템 구축",
@@ -197,7 +205,9 @@ const PortfolioSection = () => {
                     onClick={() => window.open(project.deployLink, "_blank")}
                   >
                     <ExternalLink className="mr-2 h-4 w-4" />
-                    배포 사이트 보기
+                    {project.deployLink.endsWith(".mp4")
+                      ? "시연 영상 보기"
+                      : "배포 사이트 보기"}
                   </Button>
                 )}
 
