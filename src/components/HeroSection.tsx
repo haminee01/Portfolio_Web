@@ -31,31 +31,22 @@ const HeroSection = () => {
 
   return (
     <section className="flex items-center justify-center bg-white relative overflow-hidden pt-28 pb-8">
-      <div className="container mx-auto px-6 relative">
-        <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-20">
+      <div className="container mx-auto px-24 relative">
+          <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-20">
           <div className="flex-1 text-center lg:text-left animate-slide-in-left">
-            <h1 className="text-5xl lg:text-7xl font-extrabold text-gray-900 mb-4">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-4">
               안녕하세요, 저는
               <br />
               <span className="text-green-600">이하민</span>입니다.
             </h1>
-            <h2 className="text-2xl lg:text-3xl font-semibold text-gray-800 mb-8">
+            <h2 className="text-lg md:text-2xl lg:text-3xl font-semibold text-gray-800 mb-8">
               프론트엔드 개발자 / UXUI 디자이너
             </h2>
 
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              디자인을 통해 '진정한 즐거움'을 전달하는 것에 깊이 매료되어,
-              미적인 아름다움을 넘어 사용자와 상호작용하는 웹 개발 분야에
-              도전했습니다. 산업 디자인과에서 UX/UI를 전공하며 쌓은 사용자 중심
-              사고와 디자인적 시각에, 프론트엔드 개발 지식을 더해 시너지를
-              창출하고 있습니다. 대학 진학 도중 독학으로 Html, CSS, JavaScript,
-              React를 공부했고, 비전공자라는 벽을 깨기 위해 2개의 자격증을
-              취득했습니다. 매일 꾸준히 학습하고 기록하며 성장하는 습관을 통해,
-              부트캠프에서도 기초를 탄탄히 다지며 실력을 향상시킬 수 있었습니다.
-              현재는 디자인적 감각과 논리적 개발 지식을 결합한 실전형
-              포트폴리오를 제작하고 있습니다. 사용자의 경험을 디자인하고, 이를
-              기술로 구현하는 프론트엔드 개발자로서 꾸준히 배우고 성장하며
-              긍정적인 영향력을 만들어나가고 싶습니다.
+            디자인이 의도한 ‘즐거운 경험’이 화면 위에서 멈추지 않고, 사용자의 손끝에서 완성되기를 바랐습니다. 이것이 제가 마우스를 내려놓고 코드 작성을 시작한 이유입니다.
+            산업디자인 학부에서 UX/UI를 전공하며 체득한 사용자 중심 사고는 제 개발 철학의 근간입니다. 단순히 시각적으로 아름다운 레이아웃에 머물지 않고, 그 미학이 논리적인 기능으로 치환되는 순간의 희열에 집중합니다. 정적인 시안이 생동감 있게 움직이는 인터랙션으로 변하는 과정을 즐기며, 디자인 시스템의 일관성이 코드의 재사용성으로 이어지는 구조적인 설계를 지향합니다.
+            복잡한 데이터를 직관적인 화면으로 치환하고, 사용자의 손끝에 닿는 모든 반응을 정교하게 제어하는 일. 디자인의 감각과 개발의 논리라는 두 언어를 자유롭게 오가며, 설계부터 구현까지 일관된 가치를 전달하는 '꼭 사용하고 싶은 도구'를 만들겠습니다.
             </p>
 
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start">

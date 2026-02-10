@@ -31,17 +31,17 @@ const PortfolioSection = () => {
       id: 2,
       title: "BookDam",
       description:
-        "CRUD 기능, 검색, 사용자 리뷰를 포함한 협업 도서 관리 시스템입니다.",
-      technologies: ["React", "Node.js", "MongoDB", "Express"],
+        "CRUD 기능, 검색, 사용자 리뷰를 포함한 협업 도서 관리 시스템. 독서 취향을 기반으로, 익명으로 자유롭게 소통하며 깊이 있는 독서 경험을 만들어가는 커뮤니티 플랫폼",
+      technologies: ["TypeScript", "Node.js", "Express", "Prisma", "MySQL", "REST API", "JWT Authentication"],
       duration: "3주",
       teamSize: "4명의 개발자",
       status: "백엔드",
-      link: "https://github.com/example/book-management",
+      link: "https://github.com/haminee01/Project_BookDam.git",
       deployLink: "",
-      portfolioLink: "/portfolios/book-management.pdf",
+      portfolioLink: "/portfolios/bookdam_pf.pdf",
       details:
-        "백엔드 개발자와 협업하여 RESTful API를 설계하고, 사용자들이 도서 정보를 공유할 수 있는 플랫폼을 만들었습니다. 사용자 경험을 개선하기 위한 디자인 시스템을 구축했습니다.",
-      image: "/path/to/book-management-image.png",
+        "Node.js, TypeScript, Express, Prisma를 기반으로 한 Layered Architecture 설계 및 RESTful API 구현.",
+      image: "/images/bookdam_book.png",
     },
     {
       id: 3,
