@@ -56,7 +56,15 @@ const PortfolioSection = () => {
       title: "CafeOn",
       description:
         "상황과 분위기에 맞는 최적의 카페를 추천하고, AI 기반 정보 요약과 실시간 커뮤니티 기능으로 사용자의 탐색 비용을 제로에 가깝게 만들고자하는 지능형 카페 큐레이션 플랫폼",
-      technologies: ["Next.js", "TypeScript", "STOMP", "Tailwind CSS", "Axios"],
+      technologies: [
+        "Next.js & React",
+        "TypeScript",
+        "React Query",
+        "Zustand",
+        "STOMP(WebSocket)",
+        "Tailwind CSS",
+        "Axios",
+      ],
       duration: "1개월 2주",
       teamSize: "4명의 개발자",
       status: "프론트엔드",
