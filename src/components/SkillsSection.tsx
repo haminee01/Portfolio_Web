@@ -8,23 +8,33 @@ const SkillsSection = () => {
   const certifications = ["SQLD", "정보처리기사"];
 
   const skills = [
-    { name: "HTML", category: "프론트엔드" },
-    { name: "CSS", category: "프론트엔드" },
-    { name: "JavaScript", category: "프론트엔드" },
+    // 프론트엔드
     { name: "TypeScript", category: "프론트엔드" },
+    { name: "JavaScript", category: "프론트엔드" },
+    { name: "TanStack Query", category: "프론트엔드" },
+    { name: "Zustand", category: "프론트엔드" },
+    { name: "STOMP (WebSocket)", category: "프론트엔드" },
     { name: "Tailwind CSS", category: "프론트엔드" },
-    { name: "React", category: "프레임워크" },
-    { name: "Next.js", category: "프레임워크" },
-    { name: "Bootstrap", category: "프레임워크" },
-    { name: "Figma", category: "디자인" },
-    { name: "Adobe XD", category: "디자인" },
-    { name: "Adobe Photoshop", category: "디자인" },
-    { name: "Adobe Illustrator", category: "디자인" },
-    { name: "Rhino", category: "디자인" },
-    { name: "KeyShot", category: "디자인" },
-    { name: "Node.js", category: "백엔드" },
+    { name: "Bootstrap", category: "프론트엔드" },
+    { name: "Axios", category: "프론트엔드" },
+    { name: "CSS", category: "프론트엔드" },
+    // 백엔드
     { name: "Prisma", category: "백엔드" },
     { name: "MySQL", category: "백엔드" },
+    { name: "REST API", category: "백엔드" },
+    { name: "JWT Authentication", category: "백엔드" },
+    // 프레임워크
+    { name: "Next.js", category: "프레임워크" },
+    { name: "React", category: "프레임워크" },
+    { name: "Node.js", category: "프레임워크" },
+    { name: "Express", category: "프레임워크" },
+    // 디자인
+    { name: "Figma", category: "디자인" },
+    { name: "XD", category: "디자인" },
+    { name: "Photoshop", category: "디자인" },
+    { name: "Illustrator", category: "디자인" },
+    { name: "Rhino", category: "디자인" },
+    { name: "KeyShot", category: "디자인" },
   ];
 
   useEffect(() => {
