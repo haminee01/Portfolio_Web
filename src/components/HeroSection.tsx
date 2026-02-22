@@ -27,6 +27,12 @@ const HeroSection = () => {
       href: "/resume/resume.pdf",
       variant: "outline" as const,
     },
+    {
+      label: "자기소개서",
+      icon: FileText,
+      href: "/resume/self-introduction.pdf",
+      variant: "outline" as const,
+    },
   ];
 
   return (
