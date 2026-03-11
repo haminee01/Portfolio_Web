@@ -26,28 +26,29 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-green-100/50 border-t border-green-200 py-12">
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col items-center space-y-8">
+    <footer className="border-t border-gray-200/80 bg-gray-50/80 py-12 md:py-16">
+      <div className="section-content">
+        <div className="flex flex-col items-center gap-8">
           <Button
             variant="ghost"
             onClick={scrollToTop}
-            className="rounded-full w-12 h-12 p-0 text-green-600 border border-green-300 hover:bg-green-200 transition-all duration-300 hover:scale-105"
+            className="rounded-full h-11 w-11 p-0 text-gray-600 hover:bg-gray-200 hover:text-gray-900 transition-colors"
+            aria-label="맨 위로"
           >
-            <ArrowUp className="w-6 h-6" />
+            <ArrowUp className="h-5 w-5" />
           </Button>
 
-          <div className="flex space-x-4">
+          <div className="flex items-center gap-4">
             {socialLinks.map((link) => (
               <Button
                 key={link.label}
                 variant="ghost"
                 size="icon"
                 onClick={() => window.open(link.href, "_blank")}
-                className="text-green-600 rounded-full hover:bg-green-200 transition-all duration-300 hover:scale-110"
+                className="h-10 w-10 rounded-full text-gray-600 hover:bg-gray-200 hover:text-gray-900 transition-colors"
                 aria-label={link.label}
               >
-                <link.icon className="h-10 w-10" />
+                <link.icon className="h-5 w-5" />
               </Button>
             ))}
           </div>

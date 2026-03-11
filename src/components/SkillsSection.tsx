@@ -75,8 +75,12 @@ const SkillsSection = () => {
   const categories = ["프론트엔드", "백엔드", "프레임워크", "디자인", "자격증"];
 
   return (
-    <section id="skills" ref={sectionRef} className="py-20 bg-gray-50">
-      <div className="container mx-auto px-6">
+    <section
+      id="skills"
+      ref={sectionRef}
+      className="section-padding bg-gray-50/80"
+    >
+      <div className="section-content">
         <div
           className={`transition-all duration-700 transform ${
             isVisible
@@ -84,25 +88,46 @@ const SkillsSection = () => {
               : "opacity-0 translate-y-10"
           }`}
         >
-          <h2 className="text-4xl lg:text-5xl font-bold text-center mb-12 text-gray-900">
-            기술 스택
-          </h2>
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {categories.map((category) => (
-                <div
-                  key={category}
-                  className="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200"
-                >
-                  <h3 className="text-xl font-semibold mb-6 text-center text-gray-800">
-                    {category}
-                  </h3>
+          <h2 className="section-title">기술 스택</h2>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8 lg:grid-cols-3 xl:grid-cols-5">
+            {categories.map((category) => (
+              <div
+                key={category}
+                className="flex flex-col rounded-2xl border border-gray-200/80 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:border-gray-200"
+              >
+                <h3 className="text-sm font-semibold uppercase tracking-wide text-gray-500 mb-5 text-center">
+                  {category}
+                </h3>
 
-                  <div className="flex flex-wrap gap-2">
-                    {category === "자격증"
-                      ? certifications.map((cert, index) => (
+                <div className="flex flex-wrap gap-2">
+                  {category === "자격증"
+                    ? certifications.map((cert, index) => (
+                        <div
+                          key={cert}
+                          className={`transform transition-all duration-500 ${
+                            isVisible
+                              ? "opacity-100 translate-x-0"
+                              : "opacity-0 translate-x-[-20px]"
+                          }`}
+                          style={{
+                            transitionDelay: isVisible
+                              ? `${index * 100}ms`
+                              : "0ms",
+                          }}
+                        >
+                          <Badge
+                            variant="outline"
+                            className={getCategoryColor("자격증")}
+                          >
+                            {cert}
+                          </Badge>
+                        </div>
+                      ))
+                    : skills
+                        .filter((skill) => skill.category === category)
+                        .map((skill, index) => (
                           <div
-                            key={cert}
+                            key={skill.name}
                             className={`transform transition-all duration-500 ${
                               isVisible
                                 ? "opacity-100 translate-x-0"
@@ -116,40 +141,15 @@ const SkillsSection = () => {
                           >
                             <Badge
                               variant="outline"
-                              className={getCategoryColor("자격증")}
+                              className={getCategoryColor(category)}
                             >
-                              {cert}
+                              {skill.name}
                             </Badge>
                           </div>
-                        ))
-                      : skills
-                          .filter((skill) => skill.category === category)
-                          .map((skill, index) => (
-                            <div
-                              key={skill.name}
-                              className={`transform transition-all duration-500 ${
-                                isVisible
-                                  ? "opacity-100 translate-x-0"
-                                  : "opacity-0 translate-x-[-20px]"
-                              }`}
-                              style={{
-                                transitionDelay: isVisible
-                                  ? `${index * 100}ms`
-                                  : "0ms",
-                              }}
-                            >
-                              <Badge
-                                variant="outline"
-                                className={getCategoryColor(category)}
-                              >
-                                {skill.name}
-                              </Badge>
-                            </div>
-                          ))}
-                  </div>
+                        ))}
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
