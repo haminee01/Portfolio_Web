@@ -65,12 +65,14 @@ const SkillsSection = () => {
         return "bg-lime-100 text-lime-800 border-lime-200";
       case "백엔드":
         return "bg-cyan-100 text-cyan-800 border-cyan-200";
+      case "자격증":
+        return "bg-violet-100 text-violet-800 border-violet-200";
       default:
         return "bg-gray-100 text-gray-800 border-gray-200";
     }
   };
 
-  const categories = ["프론트엔드", "백엔드", "프레임워크", "디자인"];
+  const categories = ["프론트엔드", "백엔드", "프레임워크", "디자인", "자격증"];
 
   return (
     <section id="skills" ref={sectionRef} className="py-20 bg-gray-50">
@@ -82,25 +84,6 @@ const SkillsSection = () => {
               : "opacity-0 translate-y-10"
           }`}
         >
-          <div className="max-w-6xl mx-auto mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-center mb-12 text-gray-900">
-              자격증
-            </h2>
-            <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 max-w-lg mx-auto">
-              <div className="flex flex-wrap gap-2 justify-center">
-                {certifications.map((cert) => (
-                  <Badge
-                    key={cert}
-                    variant="outline"
-                    className="bg-gray-100 text-gray-800 border-gray-200"
-                  >
-                    {cert}
-                  </Badge>
-                ))}
-              </div>
-            </div>
-          </div>
-
           <h2 className="text-4xl lg:text-5xl font-bold text-center mb-12 text-gray-900">
             기술 스택
           </h2>
@@ -116,30 +99,53 @@ const SkillsSection = () => {
                   </h3>
 
                   <div className="flex flex-wrap gap-2">
-                    {skills
-                      .filter((skill) => skill.category === category)
-                      .map((skill, index) => (
-                        <div
-                          key={skill.name}
-                          className={`transform transition-all duration-500 ${
-                            isVisible
-                              ? "opacity-100 translate-x-0"
-                              : "opacity-0 translate-x-[-20px]"
-                          }`}
-                          style={{
-                            transitionDelay: isVisible
-                              ? `${index * 100}ms`
-                              : "0ms",
-                          }}
-                        >
-                          <Badge
-                            variant="outline"
-                            className={getCategoryColor(category)}
+                    {category === "자격증"
+                      ? certifications.map((cert, index) => (
+                          <div
+                            key={cert}
+                            className={`transform transition-all duration-500 ${
+                              isVisible
+                                ? "opacity-100 translate-x-0"
+                                : "opacity-0 translate-x-[-20px]"
+                            }`}
+                            style={{
+                              transitionDelay: isVisible
+                                ? `${index * 100}ms`
+                                : "0ms",
+                            }}
                           >
-                            {skill.name}
-                          </Badge>
-                        </div>
-                      ))}
+                            <Badge
+                              variant="outline"
+                              className={getCategoryColor("자격증")}
+                            >
+                              {cert}
+                            </Badge>
+                          </div>
+                        ))
+                      : skills
+                          .filter((skill) => skill.category === category)
+                          .map((skill, index) => (
+                            <div
+                              key={skill.name}
+                              className={`transform transition-all duration-500 ${
+                                isVisible
+                                  ? "opacity-100 translate-x-0"
+                                  : "opacity-0 translate-x-[-20px]"
+                              }`}
+                              style={{
+                                transitionDelay: isVisible
+                                  ? `${index * 100}ms`
+                                  : "0ms",
+                              }}
+                            >
+                              <Badge
+                                variant="outline"
+                                className={getCategoryColor(category)}
+                              >
+                                {skill.name}
+                              </Badge>
+                            </div>
+                          ))}
                   </div>
                 </div>
               ))}

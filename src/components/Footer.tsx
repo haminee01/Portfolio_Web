@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Github, Mail, Heart, ArrowUp } from "lucide-react";
+import { Github, Mail, ArrowUp } from "lucide-react";
 import NaverBlogIcon from "@/components/icons/NaverBlogIcon";
 
 const Footer = () => {
