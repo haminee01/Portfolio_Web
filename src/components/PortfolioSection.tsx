@@ -189,7 +189,11 @@ const PortfolioSection = () => {
                       <Button
                         variant="outline"
                         size="sm"
-                        className="w-full rounded-lg border-gray-200 text-gray-700 hover:bg-green-500 hover:text-white hover:border-green-500 transition-colors"
+                        className={`w-full rounded-lg border-gray-200 text-gray-700 transition-colors ${
+                          project.status === "백엔드"
+                            ? "hover:bg-blue-500 hover:text-white hover:border-blue-500"
+                            : "hover:bg-green-500 hover:text-white hover:border-green-500"
+                        }`}
                         onClick={() => window.open(project.link, "_blank")}
                         disabled={project.link === "#"}
                       >
@@ -201,7 +205,11 @@ const PortfolioSection = () => {
                       <Button
                         variant="outline"
                         size="sm"
-                        className="w-full rounded-lg border-gray-200 text-gray-700 hover:bg-green-500 hover:text-white hover:border-green-500 transition-colors"
+                        className={`w-full rounded-lg border-gray-200 text-gray-700 transition-colors ${
+                          project.status === "백엔드"
+                            ? "hover:bg-blue-500 hover:text-white hover:border-blue-500"
+                            : "hover:bg-green-500 hover:text-white hover:border-green-500"
+                        }`}
                         onClick={() =>
                           window.open(project.deployLink, "_blank")
                         }
@@ -216,7 +224,11 @@ const PortfolioSection = () => {
                       <Button
                         variant="outline"
                         size="sm"
-                        className="w-full rounded-lg border-gray-200 text-gray-700 hover:bg-green-500 hover:text-white hover:border-green-500 transition-colors"
+                        className={`w-full rounded-lg border-gray-200 text-gray-700 transition-colors ${
+                          project.status === "백엔드"
+                            ? "hover:bg-blue-500 hover:text-white hover:border-blue-500"
+                            : "hover:bg-green-500 hover:text-white hover:border-green-500"
+                        }`}
                         onClick={() =>
                           window.open(project.portfolioLink, "_blank")
                         }
