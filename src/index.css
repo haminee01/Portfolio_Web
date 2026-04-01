@@ -49,6 +49,65 @@
   animation: cta-shine 2.8s ease-in-out infinite;
 }
 
+@media (hover: hover) and (pointer: fine) {
+  body.cursor-fancy,
+  body.cursor-fancy * {
+    cursor: none !important;
+  }
+}
+
+.cursor-dot,
+.cursor-ring {
+  pointer-events: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  will-change: transform;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  margin-top: -4px;
+  border-radius: 9999px;
+  background: #24d164;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.16);
+  transition:
+    transform 140ms ease,
+    background-color 140ms ease;
+}
+
+.cursor-ring {
+  width: 32px;
+  height: 32px;
+  margin-left: -16px;
+  margin-top: -16px;
+  border-radius: 9999px;
+  border: 1px solid rgba(36, 209, 100, 0.75);
+  transition:
+    width 180ms ease,
+    height 180ms ease,
+    margin 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+.cursor-dot.is-active {
+  transform: scale(1.2);
+  background: #0b1a11;
+}
+
+.cursor-ring.is-active {
+  width: 42px;
+  height: 42px;
+  margin-left: -21px;
+  margin-top: -21px;
+  border-color: rgba(11, 26, 17, 0.7);
+  background: rgba(36, 209, 100, 0.18);
+}
+
 @layer utilities {
   .section-content {
     @apply mx-auto w-full max-w-5xl px-5 sm:px-6 md:px-8 lg:px-10;
