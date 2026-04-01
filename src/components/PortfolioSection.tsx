@@ -12,7 +12,7 @@ const PortfolioSection = () => {
       id: 1,
       title: "넷플릭스 클론",
       description:
-        "영화 데이터를 검색하고, 탐색하며, 상세 정보를 확인할 수 있는 넷플릭스 클론 웹 애플리케이션",
+        "JS->TS 마이그레이션 경험 프로젝트 / 영화 데이터를 검색하고, 탐색하며, 상세 정보를 확인할 수 있는 넷플릭스 클론 웹 애플리케이션",
       technologies: ["React", "JavaScript", "TypeScript", "Bootstrap", "CSS"],
       duration: "3개월",
       teamSize: "개인 프로젝트",
@@ -95,11 +95,11 @@ const PortfolioSection = () => {
   const getStatusColor = (status: string) => {
     switch (status) {
       case "프론트엔드":
-        return "bg-green-100 text-green-800 border-green-200";
+        return "bg-[#0f0f0f] text-[#24D164] border-[#24D164]";
       case "백엔드":
-        return "bg-blue-100 text-blue-800 border-blue-200";
+        return "bg-[#0f0f0f] text-[#24D164] border-[#24D164]";
       default:
-        return "bg-gray-100 text-gray-800 border-gray-200";
+        return "bg-[#0f0f0f] text-[#24D164] border-[#24D164]";
     }
   };
 
@@ -107,140 +107,128 @@ const PortfolioSection = () => {
     <section
       id="portfolio"
       ref={sectionRef}
-      className="section-padding bg-white"
+      className="border-t border-[#6f6f6f] pt-0 pb-10 md:pb-12"
     >
-      <div className="section-content">
-        <div
-          className={`transition-all duration-700 transform ${
-            isVisible
-              ? "animate-fade-in opacity-100 translate-y-0"
-              : "opacity-0 translate-y-10"
-          }`}
-        >
-          <h2 className="section-title">프로젝트 & 활동</h2>
+      <div
+        className={`transition-all duration-700 transform ${
+          isVisible
+            ? "animate-scale-in opacity-100 translate-y-0"
+            : "opacity-0 translate-y-8"
+        }`}
+      >
+        <div className="relative left-1/2 w-[calc(100vw-10px)] -translate-x-1/2 rounded-md border border-[#6f6f6f] bg-[#0b0b0b] px-5 py-6 sm:w-[calc(100vw-14px)] sm:px-7 md:w-[calc(100vw-18px)] md:px-8 md:py-7 lg:w-[calc(100vw-24px)]">
+          <div className="mx-auto w-full max-w-6xl">
+            <h2 className="pt-4 mb-6 text-center text-3xl font-bold tracking-tight text-white md:text-4xl">
+              프로젝트 & 활동
+            </h2>
 
-          <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-2 xl:grid-cols-3">
-            {projects.map((project, index) => (
-              <div
-                key={project.id}
-                className={`group flex flex-col rounded-2xl border border-gray-200/80 bg-gray-50/50 p-0 shadow-sm transition-all duration-300 hover:shadow-md hover:border-gray-200 overflow-hidden ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-4"
-                }`}
-                style={{
-                  transitionDelay: isVisible ? `${index * 120}ms` : "0ms",
-                }}
-              >
-                <div className="aspect-video w-full overflow-hidden bg-gray-100">
-                  <img
-                    src={project.image}
-                    alt={`${project.title} 프로젝트 이미지`}
-                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-                  />
-                </div>
-
-                <div className="flex flex-1 flex-col p-6">
-                  <div className="flex items-start justify-between gap-3 mb-3">
-                    <h3 className="text-lg font-semibold tracking-tight text-gray-900">
-                      {project.title}
-                    </h3>
-                    <Badge
-                      variant="outline"
-                      className={`shrink-0 text-xs ${getStatusColor(project.status)}`}
-                    >
-                      {project.status}
-                    </Badge>
+            <div className="grid grid-cols-1 gap-4 md:gap-5 lg:grid-cols-2 xl:grid-cols-3">
+              {projects.map((project, index) => (
+                <div
+                  key={project.id}
+                  className={`flex flex-col overflow-hidden rounded-md border border-[#7a7a7a] bg-[#111111] ${
+                    isVisible
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-4"
+                  }`}
+                  style={{
+                    transitionDelay: isVisible ? `${index * 120}ms` : "0ms",
+                  }}
+                >
+                  <div className="aspect-video w-full overflow-hidden border-b border-[#7a7a7a] bg-[#161616]">
+                    <img
+                      src={project.image}
+                      alt={`${project.title} 프로젝트 이미지`}
+                      className="h-full w-full object-cover"
+                    />
                   </div>
 
-                  <p className="text-sm leading-relaxed text-gray-600 mb-4 line-clamp-3">
-                    {project.description}
-                  </p>
-
-                  <div className="space-y-2 mb-4">
-                    <div className="flex items-center text-xs text-gray-500">
-                      <Clock className="mr-2 h-3.5 w-3.5 shrink-0" />
-                      {project.duration}
-                    </div>
-                    <div className="flex items-center text-xs text-gray-500">
-                      <Users className="mr-2 h-3.5 w-3.5 shrink-0" />
-                      {project.teamSize}
-                    </div>
-                  </div>
-
-                  <div className="flex flex-wrap gap-1.5 mb-5">
-                    {project.technologies.map((tech) => (
+                  <div className="flex flex-1 flex-col p-5">
+                    <div className="mb-3 flex items-start justify-between gap-3">
+                      <h3 className="text-lg font-semibold tracking-tight text-white">
+                        {project.title}
+                      </h3>
                       <Badge
-                        key={tech}
-                        variant="secondary"
-                        className={`text-xs ${
-                          project.status === "백엔드"
-                            ? "bg-blue-100 text-blue-800 border-blue-200"
-                            : "bg-green-100 text-green-700 border-green-200"
-                        }`}
+                        variant="outline"
+                        className={`shrink-0 rounded-md text-xs font-semibold ${getStatusColor(project.status)}`}
                       >
-                        {tech}
+                        {project.status}
                       </Badge>
-                    ))}
-                  </div>
+                    </div>
 
-                  <div className="mt-auto flex flex-col gap-2">
-                    {project.link && (
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className={`w-full rounded-lg border-gray-200 text-gray-700 transition-colors ${
-                          project.status === "백엔드"
-                            ? "hover:bg-blue-500 hover:text-white hover:border-blue-500"
-                            : "hover:bg-green-500 hover:text-white hover:border-green-500"
-                        }`}
-                        onClick={() => window.open(project.link, "_blank")}
-                        disabled={project.link === "#"}
-                      >
-                        <Github className="mr-2 h-3.5 w-3.5" />
-                        {project.link === "#" ? "곧 출시" : "GitHub"}
-                      </Button>
-                    )}
-                    {project.deployLink && (
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className={`w-full rounded-lg border-gray-200 text-gray-700 transition-colors ${
-                          project.status === "백엔드"
-                            ? "hover:bg-blue-500 hover:text-white hover:border-blue-500"
-                            : "hover:bg-green-500 hover:text-white hover:border-green-500"
-                        }`}
-                        onClick={() =>
-                          window.open(project.deployLink, "_blank")
-                        }
-                      >
-                        <ExternalLink className="mr-2 h-3.5 w-3.5" />
-                        {project.deployLink.endsWith(".mp4")
-                          ? "시연 영상"
-                          : "배포 사이트"}
-                      </Button>
-                    )}
-                    {project.portfolioLink && (
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className={`w-full rounded-lg border-gray-200 text-gray-700 transition-colors ${
-                          project.status === "백엔드"
-                            ? "hover:bg-blue-500 hover:text-white hover:border-blue-500"
-                            : "hover:bg-green-500 hover:text-white hover:border-green-500"
-                        }`}
-                        onClick={() =>
-                          window.open(project.portfolioLink, "_blank")
-                        }
-                      >
-                        <Download className="mr-2 h-3.5 w-3.5" />
-                        포트폴리오 PDF
-                      </Button>
-                    )}
+                    <p className="mb-4 text-sm leading-relaxed text-[#d2d2d2] break-keep">
+                      {project.description}
+                    </p>
+
+                    <div className="mb-4 space-y-2">
+                      <div className="flex items-center text-xs text-[#b3b3b3]">
+                        <Clock className="mr-2 h-3.5 w-3.5 shrink-0" />
+                        {project.duration}
+                      </div>
+                      <div className="flex items-center text-xs text-[#b3b3b3]">
+                        <Users className="mr-2 h-3.5 w-3.5 shrink-0" />
+                        {project.teamSize}
+                      </div>
+                    </div>
+
+                    <div className="mb-5 flex flex-wrap gap-1.5">
+                      {project.technologies.map((tech) => (
+                        <Badge
+                          key={tech}
+                          variant="outline"
+                          className="rounded-md border-[#24D164] bg-[#0f0f0f] text-xs font-semibold text-[#24D164]"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+
+                    <div className="mt-auto flex flex-col gap-2">
+                      {project.link && (
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="w-full rounded-md border-[#7a7a7a] bg-[#0f0f0f] text-white transition-colors hover:border-[#24D164] hover:bg-[#24D164] hover:text-[#0b1a11]"
+                          onClick={() => window.open(project.link, "_blank")}
+                          disabled={project.link === "#"}
+                        >
+                          <Github className="mr-2 h-3.5 w-3.5" />
+                          {project.link === "#" ? "곧 출시" : "GitHub"}
+                        </Button>
+                      )}
+                      {project.deployLink && (
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="w-full rounded-md border-[#7a7a7a] bg-[#0f0f0f] text-white transition-colors hover:border-[#24D164] hover:bg-[#24D164] hover:text-[#0b1a11]"
+                          onClick={() =>
+                            window.open(project.deployLink, "_blank")
+                          }
+                        >
+                          <ExternalLink className="mr-2 h-3.5 w-3.5" />
+                          {project.deployLink.endsWith(".mp4")
+                            ? "시연 영상"
+                            : "배포 사이트"}
+                        </Button>
+                      )}
+                      {project.portfolioLink && (
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="w-full rounded-md border-[#7a7a7a] bg-[#0f0f0f] text-white transition-colors hover:border-[#24D164] hover:bg-[#24D164] hover:text-[#0b1a11]"
+                          onClick={() =>
+                            window.open(project.portfolioLink, "_blank")
+                          }
+                        >
+                          <Download className="mr-2 h-3.5 w-3.5" />
+                          포트폴리오 PDF
+                        </Button>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>

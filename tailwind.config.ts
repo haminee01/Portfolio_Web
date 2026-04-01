@@ -72,6 +72,9 @@ export default {
 				'hero-gradient': 'var(--hero-gradient)',
 				'section-gradient': 'var(--section-gradient)'
 			},
+			backgroundSize: {
+				'200': '200% 100%'
+			},
 			boxShadow: {
 				'card': 'var(--card-shadow)',
 				'card-hover': 'var(--card-shadow-hover)',
@@ -137,6 +140,14 @@ export default {
 					'50%': {
 						transform: 'translateY(-10px)'
 					}
+				},
+				'scale-in': {
+					'0%': { opacity: '0', transform: 'scale(0.96) translateY(12px)' },
+					'100%': { opacity: '1', transform: 'scale(1) translateY(0)' }
+				},
+				'shimmer-bg': {
+					'0%': { backgroundPosition: '200% 0' },
+					'100%': { backgroundPosition: '-200% 0' }
 				}
 			},
 			animation: {
@@ -145,7 +156,9 @@ export default {
 				'fade-in': 'fade-in 0.6s ease-out',
 				'slide-in-left': 'slide-in-left 0.6s ease-out',
 				'slide-in-right': 'slide-in-right 0.6s ease-out',
-				'float': 'float 3s ease-in-out infinite'
+				'float': 'float 3s ease-in-out infinite',
+				'scale-in': 'scale-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) both',
+				'shimmer-bg': 'shimmer-bg 3s linear infinite'
 			}
 		}
 	},
