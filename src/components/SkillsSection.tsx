@@ -28,6 +28,7 @@ const SkillsSection = () => {
     { name: "React", category: "프레임워크" },
     { name: "Node.js", category: "프레임워크" },
     { name: "Express", category: "프레임워크" },
+    { name: "Cursor AI", category: "프레임워크" },
     // 디자인
     { name: "Figma", category: "디자인" },
     { name: "XD", category: "디자인" },
