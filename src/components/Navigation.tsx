@@ -18,7 +18,10 @@ const Navigation = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+    const el = document.getElementById(sectionId);
+    if (!el) return;
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+    el.focus({ preventScroll: true });
   };
 
   return (
@@ -71,7 +74,9 @@ const Navigation = () => {
             </Button>
             <Button
               className="ml-1 rounded-full border-0 bg-[hsl(var(--glow-ink))] text-[hsl(var(--glow-cream))] shadow-md transition-transform hover:bg-[hsl(var(--glow-ink))]/90 active:scale-[0.98]"
-              onClick={() => window.open("https://github.com/haminee01", "_blank")}
+              onClick={() =>
+                window.open("https://github.com/haminee01", "_blank")
+              }
             >
               GitHub
             </Button>
@@ -88,15 +93,28 @@ const Navigation = () => {
                   메뉴
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="min-w-[12rem] rounded-2xl">
-                <DropdownMenuItem onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+              <DropdownMenuContent
+                align="end"
+                className="min-w-[12rem] rounded-2xl"
+              >
+                <DropdownMenuItem
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                >
                   자기소개
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => scrollToSection("skills")}>기술 스택</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => scrollToSection("skills")}>
+                  기술 스택
+                </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => scrollToSection("portfolio")}>
                   포트폴리오
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => window.open("https://github.com/haminee01", "_blank")}>
+                <DropdownMenuItem
+                  onClick={() =>
+                    window.open("https://github.com/haminee01", "_blank")
+                  }
+                >
                   GitHub
                 </DropdownMenuItem>
               </DropdownMenuContent>

@@ -105,7 +105,6 @@ const PortfolioSection = () => {
 
   return (
     <section
-      id="portfolio"
       ref={sectionRef}
       className="border-t border-[#6f6f6f] pt-0 pb-10 md:pb-12"
     >
@@ -118,7 +117,11 @@ const PortfolioSection = () => {
       >
         <div className="relative left-1/2 w-[calc(100vw-10px)] -translate-x-1/2 rounded-md border border-[#6f6f6f] bg-[#0b0b0b] px-5 py-6 sm:w-[calc(100vw-14px)] sm:px-7 md:w-[calc(100vw-18px)] md:px-8 md:py-7 lg:w-[calc(100vw-24px)]">
           <div className="mx-auto w-full max-w-6xl">
-            <h2 className="pt-4 mb-6 text-center text-3xl font-bold tracking-tight text-white md:text-4xl">
+            <h2
+              id="portfolio"
+              tabIndex={-1}
+              className="pt-4 mb-6 scroll-mt-20 text-center text-3xl font-bold tracking-tight text-white sm:scroll-mt-24 md:scroll-mt-28 md:text-4xl focus:outline-none"
+            >
               프로젝트 & 활동
             </h2>
 

@@ -66,11 +66,7 @@ const SkillsSection = () => {
           .map((skill) => skill.name);
 
   return (
-    <section
-      id="skills"
-      ref={sectionRef}
-      className="border-t border-border pt-0 pb-0"
-    >
+    <section ref={sectionRef} className="border-t border-border pt-0 pb-0">
       <div
         className={`transition-all duration-700 transform ${
           isVisible
@@ -80,7 +76,13 @@ const SkillsSection = () => {
       >
         <div className="relative left-1/2 w-[calc(100vw-10px)] -translate-x-1/2 rounded-md border border-[#d0d0d0] bg-[#efefef] px-5 py-6 sm:w-[calc(100vw-14px)] sm:px-7 md:w-[calc(100vw-18px)] md:px-8 md:py-7 lg:w-[calc(100vw-24px)]">
           <div className="mx-auto w-full max-w-6xl">
-            <h2 className="section-title mb-5">기술 스택</h2>
+            <h2
+              id="skills"
+              tabIndex={-1}
+              className="section-title mb-5 scroll-mt-20 sm:scroll-mt-24 md:scroll-mt-28 focus:outline-none"
+            >
+              기술 스택
+            </h2>
             <div className="grid grid-cols-1 gap-4">
               <div className="flex flex-wrap gap-2">
                 {categories.map((category) => {
