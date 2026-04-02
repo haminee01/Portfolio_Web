@@ -72,6 +72,32 @@ const PortfolioSection = () => {
         "Zustand와 STOMP.js를 활용한 실시간 통신 환경에서, Fail-Fast 원칙의 에러 핸들링과 정교한 상태 동기화 로직으로 데이터 정합성을 확보한 견고한 프론트엔드 시스템 구축",
       image: "/images/cafeon_cafe.png",
     },
+    {
+      id: 4,
+      title: "MindGrid",
+      description:
+        "AI 마인드맵을 화이트보드에서 작성·편집할 수 있는 웹 서비스로, 펜/형광펜/지우개/텍스트 도구를 제공하며 보드 저장·불러오기는 로그인 후 이용 가능하다.",
+      technologies: [
+        "Next.js & React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Zustand",
+        "React Query",
+        "Konva",
+        "Supabase",
+        "OpenAI API",
+        "Cursor AI",
+      ],
+      duration: "1개월",
+      teamSize: "개인 프로젝트",
+      status: "프론트엔드",
+      link: "https://github.com/haminee01/AI-board.git",
+      deployLink: "https://mindgrid-steel.vercel.app/",
+      portfolioLink: null,
+      details:
+        "AI 마인드맵 기능을 핵심으로 하며, 화이트보드 기반 편집 도구를 제공하고 로그인 상태에서 보드 저장/불러오기를 지원해 데이터 흐름을 안전하게 구성했다.",
+      image: "/images/mindgrid.png",
+    },
   ];
 
   useEffect(() => {
