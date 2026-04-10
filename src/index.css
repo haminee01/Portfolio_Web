@@ -13,9 +13,11 @@
       "Apple SD Gothic Neo", "Malgun Gothic", ui-sans-serif, system-ui,
       sans-serif;
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 }
 

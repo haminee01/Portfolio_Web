@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Check, Github, Mail, ExternalLink, FileText } from "lucide-react";
+import {
+  Check,
+  Github,
+  Mail,
+  ExternalLink,
+  FileText,
+  ArrowUpRight,
+} from "lucide-react";
 const HeroSection = () => {
   const [activeContact, setActiveContact] = useState(0);
 
@@ -35,7 +42,7 @@ const HeroSection = () => {
   return (
     <section className="relative animate-fade-in">
       <div
-        className="relative left-1/2 w-[calc(100vw-10px)] -translate-x-1/2 overflow-hidden rounded-md bg-[#24D164] p-9 sm:w-[calc(100vw-14px)] sm:p-12 md:w-[calc(100vw-18px)] md:p-16 lg:w-[calc(100vw-24px)] lg:p-20 shadow-[var(--card-shadow)] ring-1 ring-black/[0.04]"
+        className="relative mx-auto w-full max-w-[calc(100vw-10px)] overflow-hidden rounded-md bg-[#24D164] p-9 sm:max-w-[calc(100vw-14px)] sm:p-12 md:max-w-[calc(100vw-18px)] md:p-16 lg:left-1/2 lg:w-[calc(100vw-24px)] lg:max-w-none lg:-translate-x-1/2 lg:p-20 shadow-[var(--card-shadow)] ring-1 ring-black/[0.04]"
         style={{ animationDuration: "0.85s" }}
       >
         <div
@@ -69,6 +76,37 @@ const HeroSection = () => {
             논리를 연결해 사용자가 신뢰하고 즐길 수 있는 도구를 지향합니다.
           </p>
 
+          {/* <div className="mt-6 grid max-w-3xl grid-cols-2 gap-2 sm:grid-cols-4">
+            <div className="rounded-md border border-[#0f1f14]/20 bg-white/40 px-3 py-2">
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-[#19402b]">
+                Focus
+              </p>
+              <p className="mt-1 text-sm font-bold text-[#0b1a11]">UX 전략</p>
+            </div>
+            <div className="rounded-md border border-[#0f1f14]/20 bg-white/40 px-3 py-2">
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-[#19402b]">
+                Strength
+              </p>
+              <p className="mt-1 text-sm font-bold text-[#0b1a11]">UI 시스템</p>
+            </div>
+            <div className="rounded-md border border-[#0f1f14]/20 bg-white/40 px-3 py-2">
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-[#19402b]">
+                Process
+              </p>
+              <p className="mt-1 text-sm font-bold text-[#0b1a11]">
+                데이터 기반 개선
+              </p>
+            </div>
+            <div className="rounded-md border border-[#0f1f14]/20 bg-white/40 px-3 py-2">
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-[#19402b]">
+                Goal
+              </p>
+              <p className="mt-1 text-sm font-bold text-[#0b1a11]">
+                신뢰 가능한 경험
+              </p>
+            </div>
+          </div> */}
+
           <div className="mt-5 flex gap-3 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] snap-x snap-mandatory md:grid md:grid-cols-5 md:overflow-visible md:pb-0 [&::-webkit-scrollbar]:hidden">
             {contactLinks.map((link, index) => {
               const active = index === activeContact;
@@ -80,10 +118,10 @@ const HeroSection = () => {
                     setActiveContact(index);
                     window.open(link.href, "_blank");
                   }}
-                  className={`glow-card-hover group relative min-w-[156px] snap-center rounded-md border px-5 py-5 text-left transition-colors duration-200 md:min-w-0 ${
+                  className={`glow-card-hover group relative min-w-[156px] snap-center rounded-md border px-5 py-5 text-left transition-all duration-200 md:min-w-0 ${
                     active
-                      ? "border-black bg-[#E5E5E5] text-[#111111] shadow-sm"
-                      : "border-black bg-transparent text-[#0f2418] hover:border-black/80"
+                      ? "border-black bg-[#E5E5E5] text-[#111111] shadow-[0_8px_20px_rgba(0,0,0,0.16)]"
+                      : "border-black bg-transparent text-[#0f2418] hover:-translate-y-0.5 hover:border-black/80 hover:bg-white/20"
                   }`}
                 >
                   {active ? (
@@ -100,6 +138,7 @@ const HeroSection = () => {
                       aria-hidden
                     />
                     {link.label}
+                    <ArrowUpRight className="h-3.5 w-3.5 opacity-70 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </p>
                 </button>
               );

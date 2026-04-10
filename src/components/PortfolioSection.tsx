@@ -1,10 +1,19 @@
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Clock, Users, ExternalLink, Download, Github } from "lucide-react";
+import {
+  Clock,
+  Users,
+  ExternalLink,
+  Download,
+  Github,
+  Sparkles,
+  ArrowUpRight,
+} from "lucide-react";
 
 const PortfolioSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [activeCardId, setActiveCardId] = useState<number | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
   const projects = [
@@ -167,21 +176,35 @@ const PortfolioSection = () => {
             : "opacity-0 translate-y-8"
         }`}
       >
-        <div className="relative left-1/2 w-[calc(100vw-10px)] -translate-x-1/2 rounded-md border border-[#6f6f6f] bg-[#0b0b0b] px-5 py-6 sm:w-[calc(100vw-14px)] sm:px-7 md:w-[calc(100vw-18px)] md:px-8 md:py-7 lg:w-[calc(100vw-24px)]">
+        <div className="relative mx-auto w-full max-w-[calc(100vw-10px)] overflow-hidden rounded-md border border-[#6f6f6f] bg-[#0b0b0b] px-5 py-6 sm:max-w-[calc(100vw-14px)] sm:px-7 md:max-w-[calc(100vw-18px)] md:px-8 md:py-7 lg:left-1/2 lg:w-[calc(100vw-24px)] lg:max-w-none lg:-translate-x-1/2">
+          <div className="pointer-events-none absolute -left-20 top-0 h-56 w-56 rounded-full bg-[#24D164]/15 blur-3xl" />
+          <div className="pointer-events-none absolute -right-24 bottom-0 h-64 w-64 rounded-full bg-[#24D164]/10 blur-3xl" />
           <div className="mx-auto w-full max-w-6xl">
-            <h2
-              id="portfolio"
-              tabIndex={-1}
-              className="pt-4 mb-6 scroll-mt-20 text-center text-3xl font-bold tracking-tight text-white sm:scroll-mt-24 md:scroll-mt-28 md:text-4xl focus:outline-none"
-            >
-              프로젝트 & 활동
-            </h2>
+            <div className="mb-7 pt-4 text-center">
+              <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-[#24D164]/40 bg-[#24D164]/10 px-3 py-1 text-xs font-medium text-[#95f5b8]">
+                <Sparkles className="h-3.5 w-3.5" />
+                Selected Works
+              </p>
+              <h2
+                id="portfolio"
+                tabIndex={-1}
+                className="scroll-mt-20 text-3xl font-bold tracking-tight text-white sm:scroll-mt-24 md:scroll-mt-28 md:text-4xl focus:outline-none"
+              >
+                프로젝트 & 활동
+              </h2>
+              <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-[#b6b6b6] md:text-base">
+                문제를 구조화하고, 정보 우선순위를 정렬해, 사용자 행동으로
+                이어지는 경험을 설계했습니다.
+              </p>
+            </div>
 
             <div className="grid grid-cols-1 gap-4 md:gap-5 lg:grid-cols-2 xl:grid-cols-3">
               {projects.map((project, index) => (
                 <div
                   key={project.id}
-                  className={`flex flex-col overflow-hidden rounded-md border border-[#7a7a7a] bg-[#111111] ${
+                  onMouseEnter={() => setActiveCardId(project.id)}
+                  onMouseLeave={() => setActiveCardId(null)}
+                  className={`group relative flex flex-col overflow-hidden rounded-xl border border-[#7a7a7a] bg-[#111111]/95 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#24D164]/80 hover:shadow-[0_14px_35px_rgba(36,209,100,0.16)] ${
                     isVisible
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-4"
@@ -190,11 +213,18 @@ const PortfolioSection = () => {
                     transitionDelay: isVisible ? `${index * 120}ms` : "0ms",
                   }}
                 >
+                  <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#24D164]/18 to-transparent" />
+                    <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/35 to-transparent" />
+                  </div>
+                  {activeCardId === project.id && (
+                    <div className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-[#24D164]/20 blur-2xl" />
+                  )}
                   <div className="aspect-video w-full overflow-hidden border-b border-[#7a7a7a] bg-[#161616]">
                     <img
                       src={project.image}
                       alt={`${project.title} 프로젝트 이미지`}
-                      className="h-full w-full object-cover"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.05]"
                     />
                   </div>
 
@@ -215,12 +245,12 @@ const PortfolioSection = () => {
                       {project.description}
                     </p>
 
-                    <div className="mb-4 space-y-2">
-                      <div className="flex items-center text-xs text-[#b3b3b3]">
+                    <div className="mb-4 grid grid-cols-2 gap-2">
+                      <div className="flex items-center rounded-md border border-[#2f2f2f] bg-[#0e0e0e] px-2.5 py-2 text-xs text-[#b3b3b3]">
                         <Clock className="mr-2 h-3.5 w-3.5 shrink-0" />
                         {project.duration}
                       </div>
-                      <div className="flex items-center text-xs text-[#b3b3b3]">
+                      <div className="flex items-center rounded-md border border-[#2f2f2f] bg-[#0e0e0e] px-2.5 py-2 text-xs text-[#b3b3b3]">
                         <Users className="mr-2 h-3.5 w-3.5 shrink-0" />
                         {project.teamSize}
                       </div>
@@ -243,7 +273,7 @@ const PortfolioSection = () => {
                         <Button
                           variant="outline"
                           size="sm"
-                          className="w-full rounded-md border-[#7a7a7a] bg-[#0f0f0f] text-white transition-colors hover:border-[#24D164] hover:bg-[#24D164] hover:text-[#0b1a11]"
+                          className="w-full rounded-md border-[#7a7a7a] bg-[#0f0f0f] text-white transition-all hover:border-[#24D164] hover:bg-[#24D164] hover:text-[#0b1a11]"
                           onClick={() => window.open(project.link, "_blank")}
                           disabled={project.link === "#"}
                         >
@@ -255,7 +285,7 @@ const PortfolioSection = () => {
                         <Button
                           variant="outline"
                           size="sm"
-                          className="w-full rounded-md border-[#7a7a7a] bg-[#0f0f0f] text-white transition-colors hover:border-[#24D164] hover:bg-[#24D164] hover:text-[#0b1a11]"
+                          className="w-full rounded-md border-[#24D164]/70 bg-[#24D164]/10 text-[#d8ffe7] transition-all hover:border-[#24D164] hover:bg-[#24D164] hover:text-[#0b1a11]"
                           onClick={() =>
                             window.open(project.deployLink, "_blank")
                           }
@@ -264,6 +294,7 @@ const PortfolioSection = () => {
                           {project.deployLink.endsWith(".mp4")
                             ? "시연 영상"
                             : "배포 사이트"}
+                          <ArrowUpRight className="ml-1.5 h-3.5 w-3.5" />
                         </Button>
                       )}
                       {project.portfolioLink && (
