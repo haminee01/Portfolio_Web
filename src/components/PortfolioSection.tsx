@@ -98,6 +98,32 @@ const PortfolioSection = () => {
         "AI 마인드맵 기능을 핵심으로 하며, 화이트보드 기반 편집 도구를 제공하고 로그인 상태에서 보드 저장/불러오기를 지원해 데이터 흐름을 안전하게 구성했다.",
       image: "/images/mindgrid.png",
     },
+    {
+      id: 5,
+      title: "BUFF",
+      description:
+        "데이터 기반 게임 코칭 경험을 UXUI 관점에서 재설계한 포트폴리오 프로젝트로, 핵심 지표를 빠르게 스캔하고 다음 행동으로 이어지도록 정보 구조와 인터랙션을 설계했다.",
+      technologies: [
+        "Next.js (App Router)",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Recharts",
+        "Supabase",
+        "Google Gemini API",
+        "Vercel",
+      ],
+      duration: "약 3주",
+      teamSize: "개인 프로젝트",
+      status: "UXUI · 프론트엔드",
+      link: "https://github.com/haminee01/Project_Buff.git",
+      deployLink: "https://buff-portfolio-nu.vercel.app/",
+      portfolioLink: null,
+      details:
+        "문제 정의 → 정보 우선순위 정렬 → 카드/차트 중심 UI 시스템 구성 → 반응 로그 기반 개선 루프까지 하나의 흐름으로 연결해 코칭 UX를 실전형으로 고도화했다.",
+      image: "/images/buff.png",
+    },
   ];
 
   useEffect(() => {
