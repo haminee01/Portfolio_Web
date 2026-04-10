@@ -138,28 +138,47 @@ const PortfolioSection = () => {
   useEffect(() => {
     const sectionEl = sectionRef.current;
     if (!sectionEl) return;
+    let ticking = false;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          return;
-        }
+    const updateVisibility = () => {
+      const rect = sectionEl.getBoundingClientRect();
+      const viewportHeight =
+        window.innerHeight || document.documentElement.clientHeight;
 
-        // 섹션이 화면 아래로 완전히 내려간 상태(사용자가 위 섹션으로 복귀)에서만
-        // 다음 진입 시 재등장 애니메이션이 다시 실행되도록 리셋한다.
-        if (entry.boundingClientRect.top > 0) {
-          setIsVisible(false);
-        }
-      },
-      {
-        threshold: 0.2,
-        rootMargin: "-50px 0px -50px 0px",
-      },
-    );
+      const visiblePx = Math.max(
+        0,
+        Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0),
+      );
+      const visibleRatio = visiblePx / Math.max(rect.height, 1);
 
-    observer.observe(sectionEl);
-    return () => observer.disconnect();
+      if (visibleRatio >= 0.12) {
+        setIsVisible(true);
+        return;
+      }
+
+      // 섹션이 뷰포트 아래에 완전히 위치한 상태(위쪽 섹션으로 올라감)에서만 리셋
+      if (rect.top >= viewportHeight) {
+        setIsVisible(false);
+      }
+    };
+
+    const onScrollOrResize = () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        updateVisibility();
+        ticking = false;
+      });
+    };
+
+    updateVisibility();
+    window.addEventListener("scroll", onScrollOrResize, { passive: true });
+    window.addEventListener("resize", onScrollOrResize);
+
+    return () => {
+      window.removeEventListener("scroll", onScrollOrResize);
+      window.removeEventListener("resize", onScrollOrResize);
+    };
   }, []);
 
   const getStatusColor = (status: string) => {
