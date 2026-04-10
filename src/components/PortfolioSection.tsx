@@ -12,8 +12,8 @@ import {
 } from "lucide-react";
 
 const PortfolioSection = () => {
-  const [isVisible, setIsVisible] = useState(false);
   const [activeCardId, setActiveCardId] = useState<number | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
   const projects = [
@@ -136,9 +136,21 @@ const PortfolioSection = () => {
   ];
 
   useEffect(() => {
+    const sectionEl = sectionRef.current;
+    if (!sectionEl) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsVisible(entry.isIntersecting);
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          return;
+        }
+
+        // 섹션이 화면 아래로 완전히 내려간 상태(사용자가 위 섹션으로 복귀)에서만
+        // 다음 진입 시 재등장 애니메이션이 다시 실행되도록 리셋한다.
+        if (entry.boundingClientRect.top > 0) {
+          setIsVisible(false);
+        }
       },
       {
         threshold: 0.2,
@@ -146,10 +158,7 @@ const PortfolioSection = () => {
       },
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    observer.observe(sectionEl);
     return () => observer.disconnect();
   }, []);
 
