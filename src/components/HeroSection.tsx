@@ -64,16 +64,16 @@ const HeroSection = () => {
             <span className="whitespace-nowrap">이하민입니다.</span>
           </h1>
 
-          <h2 className="mt-4 max-w-2xl text-left text-lg font-semibold text-[#102317] md:text-xl">
+          <h2 className="mt-4 max-w-2xl text-left text-lg font-semibold text-[#0b1a11] md:text-xl">
             프론트엔드 개발자 / UXUI 디자이너
           </h2>
 
-          <p className="mt-5 max-w-none text-left text-base leading-relaxed text-[#153021] md:text-lg">
-            산업디자인 전공의 사용자 중심 사고를 바탕으로, 시각적 미학을
-            논리적인 코드로 구현하는 데 가치를 둡니다.
-            <br />
-            디자인 시스템의 일관성을 재사용 가능한 구조로 설계하며, 감각과
-            논리를 연결해 사용자가 신뢰하고 즐길 수 있는 도구를 지향합니다.
+          <p className="mt-5 max-w-3xl text-left text-base leading-relaxed text-[#0b1a11] md:text-lg">
+            산업디자인 기반의 사용자 중심 사고로, 시각적 미학을 논리적인
+            인터페이스로 구현합니다.
+            <br className="hidden sm:block" />
+            일관된 디자인 시스템과 재사용 가능한 구조를 통해 신뢰할 수 있는
+            경험을 만듭니다.
           </p>
 
           {/* <div className="mt-6 grid max-w-3xl grid-cols-2 gap-2 sm:grid-cols-4">
@@ -107,7 +107,12 @@ const HeroSection = () => {
             </div>
           </div> */}
 
-          <div className="mt-5 flex gap-3 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] snap-x snap-mandatory md:grid md:grid-cols-5 md:overflow-visible md:pb-0 [&::-webkit-scrollbar]:hidden">
+          <div className="relative mt-5">
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-[#24D164] to-transparent md:hidden" />
+            <p className="mb-2 text-right text-[11px] font-semibold tracking-wide text-[#0f1f14] md:hidden">
+              좌우로 스와이프
+            </p>
+            <div className="flex gap-3 overflow-x-auto pb-2 pr-4 [-ms-overflow-style:none] [scrollbar-width:none] snap-x snap-mandatory md:grid md:grid-cols-5 md:overflow-visible md:pb-0 md:pr-0 [&::-webkit-scrollbar]:hidden">
             {contactLinks.map((link, index) => {
               const active = index === activeContact;
               return (
@@ -121,7 +126,7 @@ const HeroSection = () => {
                   className={`glow-card-hover group relative min-w-[156px] snap-center rounded-md border px-5 py-5 text-left transition-all duration-200 md:min-w-0 ${
                     active
                       ? "border-black bg-[#E5E5E5] text-[#111111] shadow-[0_8px_20px_rgba(0,0,0,0.16)]"
-                      : "border-black bg-transparent text-[#0f2418] hover:-translate-y-0.5 hover:border-black/80 hover:bg-white/20"
+                      : "border-[#0b1a11] bg-transparent text-[#0b1a11] hover:-translate-y-0.5 hover:border-black hover:bg-white/35"
                   }`}
                 >
                   {active ? (
@@ -129,7 +134,7 @@ const HeroSection = () => {
                       <Check className="h-3.5 w-3.5" aria-hidden />
                     </span>
                   ) : null}
-                  <p className="text-[11px] font-semibold uppercase tracking-wide text-[#2a2a2a]">
+                  <p className="text-[11px] font-semibold uppercase tracking-wide text-[#1f1f1f]">
                     {link.sub}
                   </p>
                   <p className="mt-2 flex items-center gap-2 text-sm font-semibold text-current">
@@ -143,6 +148,7 @@ const HeroSection = () => {
                 </button>
               );
             })}
+            </div>
           </div>
         </div>
       </div>
