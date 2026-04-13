@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import {
   Check,
   Github,
@@ -116,18 +115,18 @@ const HeroSection = () => {
             {contactLinks.map((link, index) => {
               const active = index === activeContact;
               return (
-                <button
+                <a
                   key={link.label}
-                  type="button"
-                  onClick={() => {
-                    setActiveContact(index);
-                    window.open(link.href, "_blank");
-                  }}
-                  className={`glow-card-hover group relative min-w-[156px] snap-center rounded-md border px-5 py-5 text-left transition-all duration-200 md:min-w-0 ${
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setActiveContact(index)}
+                  className={`glow-card-hover group relative min-w-[156px] snap-center rounded-md border px-5 py-5 text-left transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0b1a11] focus-visible:ring-offset-2 focus-visible:ring-offset-[#24D164] md:min-w-0 ${
                     active
                       ? "border-black bg-[#E5E5E5] text-[#111111] shadow-[0_8px_20px_rgba(0,0,0,0.16)]"
                       : "border-[#0b1a11] bg-transparent text-[#0b1a11] hover:-translate-y-0.5 hover:border-black hover:bg-white/35"
                   }`}
+                  aria-label={`${link.label} 열기 (새 탭)`}
                 >
                   {active ? (
                     <span className="absolute right-3 top-3 flex h-6 w-6 items-center justify-center rounded-full bg-[#24D164] text-white shadow-sm">
@@ -145,7 +144,7 @@ const HeroSection = () => {
                     {link.label}
                     <ArrowUpRight className="h-3.5 w-3.5 opacity-70 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </p>
-                </button>
+                </a>
               );
             })}
             </div>
