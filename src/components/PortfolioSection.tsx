@@ -51,7 +51,7 @@ const PortfolioSection = () => {
       teamSize: "4명의 개발자",
       status: "백엔드",
       link: "https://github.com/haminee01/Project_BookDam.git",
-      deployLink: "/video/BookDam_video.mp4",
+      deployLink: "https://cafe-on-front.vercel.app/",
       portfolioLink: "/portfolios/BookDam.pdf",
       details:
         "Node.js, TypeScript, Express, Prisma를 기반으로 한 Layered Architecture 설계 및 RESTful API 구현.",
