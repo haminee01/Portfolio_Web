@@ -24,7 +24,7 @@ const Footer = () => {
             Thanks for visiting
           </p>
           <h3 className="text-2xl font-bold tracking-tight text-[#111111] md:text-3xl">
-            함께 성장하는 제품을 만들고 싶습니다
+            신뢰할 수 있는 경험을 만듭니다.
           </h3>
           <p className="max-w-2xl text-sm leading-relaxed text-[#4f4f4f] md:text-base">
             사용자에게 신뢰를 주는 경험을 목표로, 문제 정의부터 인터랙션
